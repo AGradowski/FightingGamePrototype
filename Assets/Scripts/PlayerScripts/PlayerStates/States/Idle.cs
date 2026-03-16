@@ -11,7 +11,7 @@ public class Idle : PlayerState
 
     public override void EnterState()
     {
-        Debug.Log("Idle" + player.gameObject.name);
+        //Debug.Log("Idle" + player.gameObject.name);
 
     }
 

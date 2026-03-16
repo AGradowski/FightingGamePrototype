@@ -7,7 +7,7 @@ public class PlayerState
     protected Player player;
     protected PlayerStateMachine playerStateMachine;
     protected Animator animationController; //TO BE ADDED IN CONSTRUCTOR
-    protected string animationName; //TO BE ADDED IN CONSTRUCTOR
+    public string animationName; //TO BE ADDED IN CONSTRUCTOR
 
     protected bool isExitingState;
     protected bool isAnimationFinished;
