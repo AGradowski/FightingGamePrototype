@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3151478214074752960}
   - component: {fileID: 5162032320548824947}
   - component: {fileID: 1917355343027490111}
-  - component: {fileID: 987894248939179168}
   - component: {fileID: 657204762670726160}
   - component: {fileID: 6767056280659047900}
   - component: {fileID: 1725254054546011012}
@@ -91,28 +90,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &987894248939179168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5230787926548527070}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7f3ae7922f99146a1c76d162826e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  player_body: {fileID: 0}
-  walk_speed: 3
-  z_speed: 1.5
-  playerInput: {fileID: 0}
-  other_Player: {fileID: 0}
-  mainCamera: {fileID: 0}
-  inputBuffer: {fileID: 0}
-  animator: {fileID: 0}
-  moveAmount: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &657204762670726160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,10 +163,7 @@ MonoBehaviour:
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
-  player_animation: {fileID: 0}
   player_body: {fileID: 0}
-  inputBuffer: {fileID: 0}
-  playerController: {fileID: 0}
   playerMover: {fileID: 0}
   playerAnimatorScript: {fileID: 0}
   playerAttackController: {fileID: 0}
