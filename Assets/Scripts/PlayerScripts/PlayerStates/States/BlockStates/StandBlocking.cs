@@ -9,6 +9,7 @@ public class StandBlocking : Blocking
     public override void EnterState()
     {
         Debug.Log("Stand Blocking");
+        base.EnterState();
     }
 
 

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     #region State Machine Variables
     [HideInInspector] public PlayerStateMachine StateMachine { get; set; }
-    [HideInInspector] public virtual Idle IdleState { get; set; }
+    [HideInInspector] public Idle IdleState { get; set; }
     [HideInInspector] public Blocking BlockingState { get; set; }
     [HideInInspector] public StandBlocking StandBlockingState { get; set; }
     [HideInInspector] public CrouchBlocking CrouchBlockingState { get; set; }
@@ -34,11 +34,8 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Player Scripts
-    //[HideInInspector] public PlayerAnimation player_animation;//To remove as soon as possible
     [HideInInspector] public CharacterController player_body;//how it is different than rigidbody? Tutorial uses rigid body, need to be careful
-                                                             // [HideInInspector] public InputBuffer inputBuffer;
 
-    // [HideInInspector] public PlayerController playerController;
 
     [HideInInspector] public PlayerMover playerMover;
     [HideInInspector] public PlayerAnimatorScript playerAnimatorScript;
@@ -70,11 +67,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        // player_animation = GetComponent<PlayerAnimation>();
         player_body = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
-        //inputBuffer = GetComponent<InputBuffer>();
-        // playerController = GetComponent<PlayerController>();
         playerMover = GetComponent<PlayerMover>();
         playerAnimatorScript = GetComponent<PlayerAnimatorScript>();//TODO change names
         inputInterpreter = GetComponent<InputInterpreter>();

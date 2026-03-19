@@ -12,7 +12,8 @@ public class HitStun : Stun
     {
         Debug.Log("I got hit" + player.gameObject.name);
         player.playerHealthManager.ApplyDamage(player.playerHitManager.currentAttack.damage);
-        base.timeToRecover = player.playerHitManager.currentAttack.hitStun;
+        base.timeToRecover = player.playerHitManager.currentAttack.hitStun * (1.0f / 60);
+        base.EnterState();
         //  player.playerHitManager.ClearAttack();
         //animationController.SetTrigger(animationName);
     }

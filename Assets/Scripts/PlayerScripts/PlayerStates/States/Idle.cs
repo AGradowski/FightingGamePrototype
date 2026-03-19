@@ -11,9 +11,11 @@ public class Idle : PlayerState
 
     public override void EnterState()
     {
-        Debug.Log("Idle" + player.gameObject.name);
 
+        Debug.Log("Idle " + player.gameObject.name);
+        base.EnterState();
     }
+
 
     public override void ExitState()
     {
@@ -27,7 +29,6 @@ public class Idle : PlayerState
 
         //        Debug.Log(moveInput + player.gameObject.name);
         attackInput = player.inputInterpreter.GetNextCommand();
-        player.animator.Play("Idle");
         base.FrameUpdate();
 
         //check the input buffer

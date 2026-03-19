@@ -12,6 +12,7 @@ public class Blocking : PlayerState
     public override void EnterState()
     {
         Debug.Log("Blocking");
+        base.EnterState();
     }
 
     public override void ExitState()
