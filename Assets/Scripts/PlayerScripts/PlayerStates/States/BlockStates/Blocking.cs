@@ -11,7 +11,8 @@ public class Blocking : PlayerState
     protected AttackDataObject attackInput = null;
     public override void EnterState()
     {
-        //Debug.Log("Blocking");
+        Debug.Log("Blocking");
+        base.EnterState();
     }
 
     public override void ExitState()
@@ -44,7 +45,7 @@ public class Blocking : PlayerState
         }
         if (moveInput == "")
         {
-            // Debug.Log("HERE");
+            Debug.Log("HERE");
             playerStateMachine.ChangeState(player.IdleState);
             return;
         }

@@ -12,11 +12,13 @@ public class BlockStun : Stun
 
 
         //ooooo, noo, not the correct attack
-        base.timeToRecover = player.playerHitManager.currentAttack.blockStun;
+        base.timeToRecover = player.playerHitManager.currentAttack.blockStun * (1.0f / 60);
+        Debug.Log("Time to recover" + player.gameObject.name + base.timeToRecover);
         //player.playerHitManager.ClearAttack();
         //animationController.SetTrigger(animationName);
         //chip damage apply
         //additional effects apply
+        base.EnterState();
     }
 
 

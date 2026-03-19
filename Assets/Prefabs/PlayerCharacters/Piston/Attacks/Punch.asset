@@ -16,8 +16,8 @@ MonoBehaviour:
   startupFrames: 10
   activeFrames: 10
   recoveryFrames: 5
-  hitStun: 0
-  blockStun: 0
+  hitStun: 60
+  blockStun: 24.47
   animationName: LeftPistonPunch
   input: RP
   origin: {x: 0, y: 0.88, z: 0.56}

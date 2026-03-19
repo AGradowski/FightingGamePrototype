@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   player1: {fileID: 5230787926548527070, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
-  player2: {fileID: 5230787926548527070, guid: fe24e4abca5bf20419a15cfd90c3e8af, type: 3}
+  player2: {fileID: 5230787926548527070, guid: 5bfd5cac4efd5f548aafdd29ff8e11fd, type: 3}
   SpawnPoint1: {fileID: 1047365753}
   SpawnPoint2: {fileID: 845447920}
   mainCamera: {fileID: 330585543}

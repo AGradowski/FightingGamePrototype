@@ -10,7 +10,7 @@ public class Stun : PlayerState
 
     public override void FrameUpdate()
     {
-        Debug.Log("Waiting in stun" + player.gameObject.name + timeToRecover);
+        // Debug.Log("Waiting in stun" + player.gameObject.name + timeToRecover);
         timeToRecover -= Time.deltaTime;
         base.FrameUpdate();
     }
