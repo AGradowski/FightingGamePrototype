@@ -6,10 +6,13 @@ public class InputInterpreter : MonoBehaviour
     protected Player player;
     protected AttackDataObject nextAttack = null;
     protected string nextMovement = "";
-    protected float inputRetentionTime = 7 / 60f; //1 out of the 60 frames per second - animation frames, not sthe pc frames
+    protected float inputRetentionTime = 1 / 60f; //1 out of the 60 frames per second - animation frames, not sthe pc frames
     protected float retentionCounter = 0;
     protected List<AttackDataObject> moveList;
     protected FrameInput frameInput = new FrameInput();
+
+    protected InputHistory inputHistory = new InputHistory(12);
+
     public virtual string GetMovementInput()
     {
         return nextMovement;
@@ -37,15 +40,19 @@ public class InputInterpreter : MonoBehaviour
             //nextAttack = "";
             retentionCounter = inputRetentionTime;
 
+            AnalyzeInput(frameInput);
+
             // AnalyzeInput(frameInput);
             frameInput.Clear();
+
+
             //inputBuffer.Add(frameInput);
             //frameInput = new FrameInput();
 
 
 
         }
-        AnalyzeInput(frameInput);
+
         //here add the summing of all the inputs in the frame, no, change the needle of the writer to the next buffer item
 
 

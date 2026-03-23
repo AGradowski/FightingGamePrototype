@@ -16,7 +16,7 @@ public class InputInterpreterPlayer : InputInterpreter
 
     //what to do, need a frame input object I guess
 
-    List<FrameInput> inputBuffer = new List<FrameInput>();
+
 
 
 
