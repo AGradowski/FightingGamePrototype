@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerInput playerInput;
     [HideInInspector] public InputInterpreter inputInterpreter;
     [HideInInspector] public LayerMask targetCollisionLayer;
+    [HideInInspector] public HitBoxDebuggerParent debugHitbox;
 
     #endregion
 
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
         playerHealthManager = GetComponent<HealthScript>();
 
         StateMachine = GetComponent<PlayerStateMachine>();
+        debugHitbox = GetComponent<HitBoxDebuggerParent>();
 
 
         IdleState = new Idle(this, StateMachine, animator, StateNames.IDLE);

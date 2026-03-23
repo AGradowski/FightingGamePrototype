@@ -21,12 +21,13 @@ public class AttackActive : PlayerState
         timeTillRecovery = player.currentAttack.activeFrames * (1.0f / 60);
         // player.playerAttackController.ActivateHurtbox(player.currentAttack);//two hits? 
         oneFrameTimer = 1.0f / 60;
+        player.debugHitbox.GenerateVisualHitbox(player.currentAttack);
 
     }
 
     public override void ExitState()
     {
-
+        player.debugHitbox.HideVisualHitbox();
     }
 
     public override void FrameUpdate()

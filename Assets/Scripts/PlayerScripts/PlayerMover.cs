@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
@@ -11,6 +12,12 @@ public class PlayerMover : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+        Vector3 firstMove = new Vector2(1, 0).x * player.player_body.transform.forward;// + (velocity.y * Vector3.up);
+        //Debug.Log(finalMove);
+
+        // if (player.StateMachine.CurrentPlayerState is Moving)//TODO better solution, this is not working
+        //{
+        player.player_body.Move(firstMove * Time.deltaTime);
     }
 
 

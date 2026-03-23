@@ -20,6 +20,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         Debug.Log("Searching in:" + player.targetCollisionLayer);
 
+
         Collider[] hitColliders = Physics.OverlapSphere(player.transform.position + attack.origin, attack.radius, player.targetCollisionLayer);
 
         foreach (var hitCollider in hitColliders)//TODO, there are two colliders present in the player, box collider AND CHARCTER CONTROLLER

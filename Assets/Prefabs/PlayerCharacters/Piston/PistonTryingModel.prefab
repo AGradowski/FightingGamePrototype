@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -6838938821571761711}
   - component: {fileID: -3297691359480719553}
   - component: {fileID: 3583922914144523567}
-  - component: {fileID: 8374450565232582139}
+  - component: {fileID: 8891548337570548946}
   m_Layer: 0
   m_Name: PistonTryingModel
   m_TagString: Untagged
@@ -175,6 +175,7 @@ MonoBehaviour:
   targetCollisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  debugHitbox: {fileID: 0}
   mainCamera: {fileID: 0}
   currentAttack: {fileID: 0}
 --- !u!114 &7400642052069740396
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a9c1ebfcb1d1047b2a4d64cccaefd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
---- !u!114 &8374450565232582139
+--- !u!114 &8891548337570548946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,10 +249,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5230787926548527070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f625faa7640424468b62f5ce5121cd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 45fd634f12550ec489fd44b64bf84fc3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitBoxDebuggerParent
-  attack: {fileID: 11400000, guid: f87ea58b6ce209f44b0dfeaf76ec717d, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::HitboxDebugger
   hitbox: {fileID: 2100000, guid: 17a9522694ba38d478ac1587c72afd8d, type: 2}
 --- !u!1001 &6400493520487234481
 PrefabInstance:
