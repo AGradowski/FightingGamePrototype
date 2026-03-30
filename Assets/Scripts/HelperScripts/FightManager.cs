@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FightManager : MonoBehaviour
@@ -10,6 +11,15 @@ public class FightManager : MonoBehaviour
 
     public GameObject mainCamera;
 
+    private GameObject actual1;
+
+    private GameObject actual2;
+
+    // public GameObject uiManager;
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -18,9 +28,9 @@ public class FightManager : MonoBehaviour
 
 
 
-        GameObject actual1 = Instantiate(player1, SpawnPoint1.position, SpawnPoint1.rotation);
+        actual1 = Instantiate(player1, SpawnPoint1.position, SpawnPoint1.rotation);
         actual1.name = Names.PLAYER1;
-        GameObject actual2 = Instantiate(player2, SpawnPoint2.position, SpawnPoint2.rotation);
+        actual2 = Instantiate(player2, SpawnPoint2.position, SpawnPoint2.rotation);
         actual2.name = Names.PLAYER2;
         //note, the orders matters for now, only one gets the Keyboard + mouse control scheme
         // the first one above
@@ -33,8 +43,22 @@ public class FightManager : MonoBehaviour
 
         actual1.GetComponent<Player>().mainCamera = mainCamera;
 
+
+
         //ayo, that can be easily changed for other camera :O
         // actual2.GetComponent<PlayerController>().mainCamera = mainCamera;
+        actual1.GetComponent<Player>().fightManager = gameObject;
+        actual2.GetComponent<Player>().fightManager = gameObject;
+
+
+    }
+
+    void Start()
+    {
+        Actions.HealthChanged(actual1.GetComponent<Player>());
+        Actions.HealthChanged(actual2.GetComponent<Player>());
+
+
     }
 
     // Update is called once per frame
@@ -42,4 +66,7 @@ public class FightManager : MonoBehaviour
     {
         //check for health of players
     }
+
+
+
 }

@@ -4,6 +4,8 @@ public class PlayerHitManager : MonoBehaviour
 {
     private Player player;
     public bool _IsHit = false;
+
+
     //  public int damage = 0;
 
     public AttackDataObject currentAttack; //totally different attack, present in the second player, not this one. Need to 
@@ -35,5 +37,6 @@ public class PlayerHitManager : MonoBehaviour
         this._IsHit = false;
         // this.damage = 0;
         Destroy(currentAttack);
+
     }
 }
