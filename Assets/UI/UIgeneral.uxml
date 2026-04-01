@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="HealthBarBackground1" style="flex-grow: 1; position: absolute; width: 500px; height: 100px; background-image: url(&quot;project://database/Assets/UI/HP_bar_001.png?fileID=2800000&amp;guid=bb48b09ad5a02bb40a59a373e7fbdd29&amp;type=3#HP_bar_001&quot;);">
+        <ui:VisualElement name="HealthBarMask1" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+            <ui:VisualElement name="HealthBarFill1" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/HP_bar_fill.png?fileID=2800000&amp;guid=59b9040da678c7a43bf98006cc4d76c0&amp;type=3#HP_bar_fill&quot;); position: absolute; width: 500px; height: 100%; overflow: hidden;" />
+        </ui:VisualElement>
+        <ui:Label text="Label" name="HealthLabel1" style="position: absolute; width: 100%; height: 100%; -unity-text-align: middle-left; font-size: 28px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 50px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="HealthBarBackground2" style="flex-grow: 1; position: absolute; height: 100px; top: auto; width: 500px; left: auto; right: 0; background-image: url(&quot;project://database/Assets/UI/HP_bar_001.png?fileID=2800000&amp;guid=bb48b09ad5a02bb40a59a373e7fbdd29&amp;type=3#HP_bar_001&quot;);">
+        <ui:VisualElement name="HealthBarMask2" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+            <ui:VisualElement name="HealthBarFill2" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/HP_bar_fill.png?fileID=2800000&amp;guid=59b9040da678c7a43bf98006cc4d76c0&amp;type=3#HP_bar_fill&quot;); width: 500px; height: 100%; position: absolute;" />
+        </ui:VisualElement>
+        <ui:Label text="Label" name="HealthLabel2" style="position: absolute; width: 100%; height: 100%; -unity-text-align: middle-right; font-size: 28px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 50px; padding-bottom: 0; padding-left: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

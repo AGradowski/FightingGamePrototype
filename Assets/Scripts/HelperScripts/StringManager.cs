@@ -30,4 +30,12 @@ public class Messages
     public const string HIT = "SetAttackHit";
 }
 
+public class UINames
+{
+    public const string LABEL_OF_PLAYER1 = "HealthLabel1";
+    public const string LABEL_OF_PLAYER2 = "HealthLabel2";
+
+    public const string HP_MASK_PLAYER1 = "HealthBarMask1";
+    public const string HP_MASK_PLAYER2 = "HealthBarMask2";
+}
 

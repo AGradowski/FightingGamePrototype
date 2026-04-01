@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
     #region Other Object References
     private GameObject other_Player;
     public GameObject mainCamera;
+    public GameObject fightManager;
+
 
     [HideInInspector] public AttackDataObject currentAttack = null;
 
@@ -126,5 +128,7 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentPlayerState.PhysicsUpdate();
     }
+
+
 
 }
