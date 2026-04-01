@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HpBarsManager
   manager: {fileID: 1781144567}
+  UIDoc: {fileID: 500791526}
 --- !u!114 &500791526
 MonoBehaviour:
   m_ObjectHideFlags: 0
