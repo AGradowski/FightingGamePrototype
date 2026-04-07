@@ -19,6 +19,7 @@ MonoBehaviour:
   hitStun: 11
   blockStun: 11
   animationName: LeftPistonPunch
+  attackType: 2
   input: LK+RK
   origin: {x: 0, y: 0, z: 0}
   size: {x: 0, y: 0, z: 0}

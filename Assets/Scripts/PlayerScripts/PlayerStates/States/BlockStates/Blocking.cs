@@ -30,12 +30,7 @@ public class Blocking : PlayerState
 
     public override void TransitionChecks()
     {
-        if (player.playerHitManager._IsHit)
-        {
-            Debug.Log("Attempting to Change state" + player.gameObject.name);
-            playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
-            return;
-        }
+
 
         if (player.inputInterpreter.GetNextCommand() is not null)
         {
@@ -45,13 +40,17 @@ public class Blocking : PlayerState
         }
         if (moveInput == "")
         {
-            Debug.Log("HERE");
             playerStateMachine.ChangeState(player.IdleState);
             return;
         }
         if (moveInput == "6")
         {
             playerStateMachine.ChangeState(player.MovingState);
+            return;
+        }
+        if (moveInput == "1")
+        {
+            playerStateMachine.ChangeState(player.CrouchBlockingState);
             return;
         }
         base.TransitionChecks();

@@ -20,4 +20,15 @@ public class StandBlocking : Blocking
         player.playerMover.MovePlayer();
         base.FrameUpdate();
     }
+
+    public override void TransitionChecks()
+    {
+        if (player.playerHitManager._IsHit)
+        {
+            Debug.Log("Attempting to Change state" + player.gameObject.name);
+            playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
+            return;
+        }
+        base.TransitionChecks();
+    }
 }

@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthScript
   healthValue: 100
+  maxHealthValue: 100
 --- !u!114 &6767056280659047900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   moveList:
   - {fileID: 11400000, guid: f87ea58b6ce209f44b0dfeaf76ec717d, type: 2}
   - {fileID: 11400000, guid: 1a6f8967a355023478dc7392c32edca9, type: 2}
+  - {fileID: 11400000, guid: 9c52a10e26aaee941a63991040326ca9, type: 2}
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
@@ -177,7 +179,9 @@ MonoBehaviour:
   targetCollisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  debugHitbox: {fileID: 0}
   mainCamera: {fileID: 0}
+  fightManager: {fileID: 0}
   currentAttack: {fileID: 0}
 --- !u!114 &7400642052069740396
 MonoBehaviour:
@@ -253,8 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f625faa7640424468b62f5ce5121cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxDebuggerParent
-  attack: {fileID: 11400000, guid: f87ea58b6ce209f44b0dfeaf76ec717d, type: 2}
-  hitbox: {fileID: 2100000, guid: 17a9522694ba38d478ac1587c72afd8d, type: 2}
 --- !u!114 &-9007599884623121460
 MonoBehaviour:
   m_ObjectHideFlags: 0

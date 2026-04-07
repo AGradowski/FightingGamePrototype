@@ -34,7 +34,7 @@ public class Debug_SetPlayerState : MonoBehaviour
             switch (chosenState)
             {
                 case StateNames.BLOCKING:
-                    state = player.BlockingState;
+                    state = player.StandBlockingState;
                     break;
                 case StateNames.IDLE:
                     state = player.IdleState;
