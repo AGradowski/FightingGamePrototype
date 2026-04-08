@@ -34,6 +34,12 @@ public class CrouchBlocking : Blocking
             playerStateMachine.ChangeState(player.HitStun);//add celaring of the state, as it is being confirmed
             return;
         }
+        if (moveInput == "4")
+        {
+            playerStateMachine.ChangeState(player.StandBlockingState);
+            return;
+        }
+
         base.TransitionChecks();
     }
 }

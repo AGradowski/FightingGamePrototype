@@ -51,7 +51,7 @@ public class Moving : PlayerState
             playerStateMachine.ChangeState(player.AttackStartup);
             return;
         }
-        if (moveInput == "")
+        if (moveInput == "5")
         {
             playerStateMachine.ChangeState(player.IdleState);
             return;

@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e167fe49b4054dab41423a84c7497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Debug_SetPlayerState
-  chosenState: Idle
+  chosenState: Blocking
 --- !u!114 &732276402468893891
 MonoBehaviour:
   m_ObjectHideFlags: 0

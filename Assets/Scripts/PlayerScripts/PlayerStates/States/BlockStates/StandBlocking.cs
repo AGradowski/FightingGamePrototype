@@ -29,6 +29,11 @@ public class StandBlocking : Blocking
             playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
             return;
         }
+        if (moveInput == "1")
+        {
+            playerStateMachine.ChangeState(player.CrouchBlockingState);
+            return;
+        }
         base.TransitionChecks();
     }
 }

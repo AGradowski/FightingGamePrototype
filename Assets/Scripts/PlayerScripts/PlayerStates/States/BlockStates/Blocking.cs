@@ -38,7 +38,7 @@ public class Blocking : PlayerState
             playerStateMachine.ChangeState(player.AttackStartup);
             return;
         }
-        if (moveInput == "")
+        if (moveInput == "5")
         {
             playerStateMachine.ChangeState(player.IdleState);
             return;
@@ -48,11 +48,8 @@ public class Blocking : PlayerState
             playerStateMachine.ChangeState(player.MovingState);
             return;
         }
-        if (moveInput == "1")
-        {
-            playerStateMachine.ChangeState(player.CrouchBlockingState);
-            return;
-        }
+
+
         base.TransitionChecks();
 
     }
