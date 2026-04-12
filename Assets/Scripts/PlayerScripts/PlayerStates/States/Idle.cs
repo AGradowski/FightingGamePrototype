@@ -66,6 +66,11 @@ public class Idle : PlayerState
             playerStateMachine.ChangeState(player.StandBlockingState);
             return;
         }
+        if (moveInput == "1")
+        {
+            playerStateMachine.ChangeState(player.CrouchBlockingState);
+            return;
+        }
         base.TransitionChecks();
     }
 }

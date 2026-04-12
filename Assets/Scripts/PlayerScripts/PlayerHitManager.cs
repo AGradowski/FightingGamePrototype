@@ -2,18 +2,15 @@ using UnityEngine;
 
 public class PlayerHitManager : MonoBehaviour
 {
-    private Player player;
+    //private Player player;
     public bool _IsHit = false;
-
-
-    //  public int damage = 0;
 
     public AttackDataObject currentAttack; //totally different attack, present in the second player, not this one. Need to 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GetComponent<Player>();
+        //player = GetComponent<Player>();
     }
 
     // Update is called once per frame

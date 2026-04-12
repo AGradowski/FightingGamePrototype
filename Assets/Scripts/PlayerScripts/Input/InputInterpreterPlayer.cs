@@ -16,14 +16,40 @@ public class InputInterpreterPlayer : InputInterpreter
 
     //what to do, need a frame input object I guess
 
+
+    //USE array
+    /*
+    (-1,1)     (0,1)    (1,1)
+    (-1,0)     (0,0)    (1,0)
+    (-1,-1)    (0,-1)   (1,-1)
+    */
+
+    private Dictionary<Vector2, string> inputMapping = new Dictionary<Vector2, string>();
+
+
+
+
     List<FrameInput> inputBuffer = new List<FrameInput>();
 
 
 
-    void Awake()
+    void Start()
     {
         player = GetComponent<Player>();
         moveList = player.moveList;
+
+        inputMapping.Add(Vector2.down, "2");
+        inputMapping.Add(Vector2.up, "8");
+        inputMapping.Add(Vector2.left, "4");
+        inputMapping.Add(Vector2.right, "6");
+
+        inputMapping.Add(Vector2.right + Vector2.up, "9");
+        inputMapping.Add(Vector2.right + Vector2.down, "3");
+        inputMapping.Add(Vector2.left + Vector2.up, "7");
+        inputMapping.Add(Vector2.left + Vector2.down, "1");
+
+
+        inputMapping.Add(Vector2.zero, "5");
 
     }
 
@@ -61,22 +87,9 @@ public class InputInterpreterPlayer : InputInterpreter
         Vector3 cross = Vector3.Cross(player.transform.forward, player.mainCamera.transform.forward);
         Vector2 moveDirection = value.Get<Vector2>() * cross.y * -1; //-1 for back, 1 for forward?
 
-        // Debug.Log(value.Get<Vector2>());
-        // Debug.Log(moveDirection.x);
 
-        if (moveDirection.x < 0)
-        {
-            nextMovement = "4";
-            // Debug.Log(nextMovement);
-        }
-        else if (moveDirection.x > 0)
-        {
-            nextMovement = "6";
-        }
-        else
-        {
-            nextMovement = "";//clear on change, not if i keep it
-        }
+        moveDirection = Vector2Int.RoundToInt(moveDirection);
+        nextMovement = inputMapping.GetValueOrDefault(moveDirection);
 
     }
 

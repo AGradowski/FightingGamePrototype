@@ -11,6 +11,7 @@ public class Moving : PlayerState
     public override void EnterState()
     {
         Debug.Log("Entering Moving");
+        base.EnterState();
 
     }
 
@@ -50,7 +51,7 @@ public class Moving : PlayerState
             playerStateMachine.ChangeState(player.AttackStartup);
             return;
         }
-        if (moveInput == "")
+        if (moveInput == "5")
         {
             playerStateMachine.ChangeState(player.IdleState);
             return;
@@ -58,6 +59,11 @@ public class Moving : PlayerState
         if (moveInput == "4")
         {
             playerStateMachine.ChangeState(player.StandBlockingState);
+            return;
+        }
+        if (moveInput == "1")
+        {
+            playerStateMachine.ChangeState(player.CrouchBlockingState);
             return;
         }
         base.TransitionChecks();

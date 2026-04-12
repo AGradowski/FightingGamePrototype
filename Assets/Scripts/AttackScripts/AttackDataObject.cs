@@ -15,6 +15,15 @@ public class AttackDataObject : ScriptableObject
     public float blockStun;
     public string animationName;
 
+    public enum AttackType
+    {
+        High,
+        Medium,
+        Low
+    }
+
+    public AttackType attackType;
+
     [Header("Input")]
     public string input; //ENUM
 
@@ -25,5 +34,7 @@ public class AttackDataObject : ScriptableObject
     public Vector3 origin; //possibly add more hurtboxes, for better customization
     public Vector3 size;
     public float radius;
+
+
 
 }

@@ -5,7 +5,7 @@ public class InputInterpreter : MonoBehaviour
 {
     protected Player player;
     protected AttackDataObject nextAttack = null;
-    protected string nextMovement = "";
+    protected string nextMovement = "5";
     protected float inputRetentionTime = 7 / 60f; //1 out of the 60 frames per second - animation frames, not sthe pc frames
     protected float retentionCounter = 0;
     protected List<AttackDataObject> moveList;

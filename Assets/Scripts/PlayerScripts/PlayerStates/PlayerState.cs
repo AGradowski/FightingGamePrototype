@@ -28,7 +28,7 @@ public class PlayerState
         isAnimationFinished = false;
         isExitingState = false;
         startTime = Time.time;
-        player.animator.Play(animationName);
+        player.animator.Play(animationName);//HERE FOR ANIMATION PLAYING
         // animationController.SetBool(animationName, true);
     }
 

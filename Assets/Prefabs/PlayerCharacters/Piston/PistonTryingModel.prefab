@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthScript
   healthValue: 100
+  maxHealthValue: 100
 --- !u!114 &6767056280659047900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,7 @@ MonoBehaviour:
   moveList:
   - {fileID: 11400000, guid: f87ea58b6ce209f44b0dfeaf76ec717d, type: 2}
   - {fileID: 11400000, guid: 1a6f8967a355023478dc7392c32edca9, type: 2}
+  - {fileID: 11400000, guid: 9c52a10e26aaee941a63991040326ca9, type: 2}
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
@@ -177,6 +179,7 @@ MonoBehaviour:
     m_Bits: 0
   debugHitbox: {fileID: 0}
   mainCamera: {fileID: 0}
+  fightManager: {fileID: 0}
   currentAttack: {fileID: 0}
 --- !u!114 &7400642052069740396
 MonoBehaviour:
