@@ -16,11 +16,11 @@ MonoBehaviour:
   startupFrames: 20
   activeFrames: 3
   recoveryFrames: 5
-  hitStun: 10
-  blockStun: 10
+  hitStun: 500
+  blockStun: 100
   animationName: LowKick
   attackType: 2
   input: RK
   origin: {x: 0, y: 0, z: 0}
   size: {x: 0, y: 0, z: 0}
-  radius: 20
+  radius: 2

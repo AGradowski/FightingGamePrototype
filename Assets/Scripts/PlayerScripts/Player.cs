@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public HitStun HitStun { get; set; }
     [HideInInspector] public BlockStun BlockStun { get; set; }
+
+    [HideInInspector] public CrouchBlockStun CrouchBlockStun { get; set; }
+
     [HideInInspector] public Moving MovingState { get; set; }
     [HideInInspector] public AttackActive AttackActive { get; set; }
     [HideInInspector] public AttackStartup AttackStartup { get; set; }
@@ -93,6 +96,7 @@ public class Player : MonoBehaviour
         AttackStartup = new AttackStartup(this, StateMachine, animator, StateNames.ATTACK);
         AttackRecovery = new AttackRecovery(this, StateMachine, animator, StateNames.ATTACK);
         BlockStun = new BlockStun(this, StateMachine, animator, StateNames.BLOCK_STUN);
+        CrouchBlockStun = new CrouchBlockStun(this, StateMachine, animator, StateNames.CROUCH_BLOCK_STUN);
 
 
 

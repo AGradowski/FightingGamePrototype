@@ -40,6 +40,7 @@ public class Blocking : PlayerState
         }
         if (moveInput == "5")
         {
+            Debug.Log("Here");
             playerStateMachine.ChangeState(player.IdleState);
             return;
         }

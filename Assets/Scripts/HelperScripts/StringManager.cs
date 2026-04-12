@@ -19,6 +19,7 @@ public class StateNames
     public const string BLOCKING = "Blocking";
     public const string HIT_STUN = "HitStun";
     public const string BLOCK_STUN = "BlockStun";
+    public const string CROUCH_BLOCK_STUN = "CrouchBlockStun";
     public const string MOVING = "Moving";
     public const string ATTACK = "Attack";
     public const string STAND_BLOCKING = "StandBlocking";

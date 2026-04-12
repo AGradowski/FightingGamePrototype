@@ -58,6 +58,7 @@ Assets/
  Scripts/
   AttackScripts/AttackDataObject.cs
   DebugScripts/
+   Debug_PlayerMover.cs
    Debug_SetPlayerState.cs
    HitboxDebugger.cs
    HitBoxDebuggerParent.cs
@@ -93,6 +94,7 @@ Assets/
      Moving.cs
      StunStates/
       BlockStun.cs
+      CrouchBlockStun.cs
       HitStun.cs
       Stun.cs
   UIScripts/HpBarsManager.cs

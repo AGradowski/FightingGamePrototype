@@ -25,7 +25,7 @@ public class CrouchBlocking : Blocking
         if (player.playerHitManager._IsHit && player.playerHitManager.currentAttack.attackType == AttackDataObject.AttackType.Low)
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
-            playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
+            playerStateMachine.ChangeState(player.CrouchBlockStun);//add celaring of the state, as it is being confirmed
             return;
         }
         if (player.playerHitManager._IsHit && player.playerHitManager.currentAttack.attackType == AttackDataObject.AttackType.Medium)
