@@ -21,7 +21,7 @@ public class PlayerMover : MonoBehaviour
     }
 
 
-    public void MovePlayer()
+    public virtual void MovePlayer()
     {
         string input = player.inputInterpreter.GetMovementInput();
         movementVector = new Vector2(0, 0);

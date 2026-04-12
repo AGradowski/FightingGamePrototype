@@ -15,6 +15,7 @@ public class Debug_SetPlayerState : MonoBehaviour
     }
 
     public PossibleStates chosenState = PossibleStates.Idle;
+    private PossibleStates prevState;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,15 +46,18 @@ public class Debug_SetPlayerState : MonoBehaviour
                 inputInterpreterDebug.setDebugMovementInput("5");
                 break;
         }
+        prevState = chosenState;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //assuming it always needs to get back to idle at some point
-        if (player.StateMachine.CurrentPlayerState.animationName == StateNames.IDLE && chosenState != PossibleStates.Idle)
+        if (chosenState != prevState)
         {
+
+
+            //assuming it always needs to get back to idle at some point
             switch (chosenState)
             {
                 case PossibleStates.Idle:
@@ -73,8 +77,9 @@ public class Debug_SetPlayerState : MonoBehaviour
                     inputInterpreterDebug.setDebugMovementInput("5");
                     break;
             }
-
+            prevState = chosenState;
             player.StateMachine.ChangeState(state);
         }
     }
 }
+

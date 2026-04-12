@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Debug_PlayerMover : PlayerMover
 {
-    public new void MovePlayer()
+    public override void MovePlayer()
     {
         return;
     }
