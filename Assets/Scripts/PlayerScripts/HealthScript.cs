@@ -17,5 +17,15 @@ public class HealthScript : MonoBehaviour
         healthValue -= damage;
         Debug.Log(healthValue);
         Actions.HealthChanged(player);
+        if (healthValue <= 0)
+        {
+            Actions.PlayerDied(player);
+        }
+    }
+
+    public void Setup()
+    {
+        healthValue = maxHealthValue;
+        Actions.HealthChanged(player);
     }
 }

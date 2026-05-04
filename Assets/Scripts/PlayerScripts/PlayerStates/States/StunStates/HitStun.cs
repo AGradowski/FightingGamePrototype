@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class HitStun : Stun
 {
-    // private float timeInStun = 0f;
 
     public HitStun(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
@@ -14,7 +13,5 @@ public class HitStun : Stun
         player.playerHealthManager.ApplyDamage(player.playerHitManager.currentAttack.damage);
         base.timeToRecover = player.playerHitManager.currentAttack.hitStun * (1.0f / 60);
         base.EnterState();
-        //  player.playerHitManager.ClearAttack();
-        //animationController.SetTrigger(animationName);
     }
 }
