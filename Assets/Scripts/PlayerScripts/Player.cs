@@ -58,14 +58,17 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Object References
-    private GameObject other_Player;
+    private GameObject other_Player;//TODO remove?
     public GameObject mainCamera;
     public GameObject fightManager;
-
 
     [HideInInspector] public AttackDataObject currentAttack = null;
 
 
+    #endregion
+
+    #region Player Fields
+    [HideInInspector] public int playerID = -1;
     #endregion
 
 

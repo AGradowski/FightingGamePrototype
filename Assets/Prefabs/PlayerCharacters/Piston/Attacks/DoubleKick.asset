@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b79b4fed6130745aa11c6a7d2b18a9, type: 3}
   m_Name: DoubleKick
   m_EditorClassIdentifier: Assembly-CSharp::AttackDataObject
-  damage: 10
+  damage: 50
   startupFrames: 10
   activeFrames: 10
   recoveryFrames: 10
-  hitStun: 204.13
+  hitStun: 22.8
   blockStun: 11
   animationName: LeftPistonPunch
   attackType: 1

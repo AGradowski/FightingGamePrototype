@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b79b4fed6130745aa11c6a7d2b18a9, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: Assembly-CSharp::AttackDataObject
-  damage: 10
+  damage: 50
   startupFrames: 10
   activeFrames: 50
   recoveryFrames: 5
