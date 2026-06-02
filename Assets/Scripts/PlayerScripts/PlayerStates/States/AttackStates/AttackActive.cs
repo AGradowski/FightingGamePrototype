@@ -32,12 +32,18 @@ public class AttackActive : PlayerState
 
     public override void FrameUpdate()
     {
+
         timeTillRecovery -= Time.deltaTime;
         oneFrameTimer -= Time.deltaTime;
         //check the hitbox
         if (oneFrameTimer <= 0)
         {
-            player.playerAttackController.ActivateHurtbox(player.currentAttack);
+            if (player.playerAttackController.ActivateHurtbox(player.currentAttack))
+            {
+                playerStateMachine.ChangeState(player.AttackRecovery);
+
+            }
+            ;
             oneFrameTimer = 1.0f / 60;
         }
 

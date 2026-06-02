@@ -14,4 +14,16 @@ public class HitStun : Stun
         base.timeToRecover = player.playerHitManager.currentAttack.hitStun * (1.0f / 60);
         base.EnterState();
     }
+
+    public override void TransitionChecks()
+    {
+        base.TransitionChecks();
+        if (player.playerHitManager._IsHit)
+        {
+            Debug.Log("COMBO");
+            playerStateMachine.ChangeState(player.HitStun);
+        }
+    }
+
+
 }
