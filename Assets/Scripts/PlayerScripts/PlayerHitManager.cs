@@ -21,7 +21,7 @@ public class PlayerHitManager : MonoBehaviour
 
     public void SetAttackHit(AttackDataObject attack)
     {
-        Debug.Log("Hit");
+        // Debug.Log("Hit");
         //add copy of everything
 
         this._IsHit = true;
