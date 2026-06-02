@@ -18,14 +18,14 @@ public class PlayerAttackController : MonoBehaviour
 
     public void ActivateHurtbox(AttackDataObject attack)
     {
-        Debug.Log("Searching in:" + player.targetCollisionLayer);
+        //        Debug.Log("Searching in:" + player.targetCollisionLayer);
 
 
         Collider[] hitColliders = Physics.OverlapSphere(player.transform.position + attack.origin, attack.radius, player.targetCollisionLayer);
 
         foreach (var hitCollider in hitColliders)//TODO, there are two colliders present in the player, box collider AND CHARCTER CONTROLLER
         {
-            Debug.Log("HIT");
+            //Debug.Log("HIT");
 
             //Here message is used, because it is for the other player
             hitCollider.SendMessage(Messages.HIT, attack);//TODO add

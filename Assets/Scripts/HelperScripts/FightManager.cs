@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour
 {
@@ -110,20 +111,29 @@ public class FightManager : MonoBehaviour
         else if (player1.playerHealthManager.healthValue <= 0)
         {
             Debug.Log("P2 Won");
+            winsP2 += 1;
+            Debug.Log(winsP2);
+
             //setup flags
         }
         else if (player2.playerHealthManager.healthValue <= 0)
         {
             Debug.Log("P1 Won");
+            winsP1 += 1;
+            Debug.Log(winsP1);
         }
         RoundEnd();
     }
 
     private void RoundEnd()
     {
-        if (winsP1 == roundsToWin || winsP2 == roundsToWin)
+        if (winsP1 == roundsToWin)
         {
-            GameEnd();
+            GameEnd(player1);
+        }
+        else if (winsP2 == roundsToWin)
+        {
+            GameEnd(player2);
         }
         else
         {
@@ -135,7 +145,6 @@ public class FightManager : MonoBehaviour
             //restart
             //ui update
             //move to the center
-            //heal 
             //blovk movement for x
 
         }
@@ -147,13 +156,15 @@ public class FightManager : MonoBehaviour
     private void RoundStart()
     {
         roundNumber += 1;
+        Debug.Log(roundNumber);
         playerDiedFlag = false;
         //Setup();
     }
 
-    private void GameEnd()
+    private void GameEnd(Player winner)
     {
-
+        Debug.Log(winner.name + " won!");
+        SceneManager.LoadScene(0);
     }
 
 
