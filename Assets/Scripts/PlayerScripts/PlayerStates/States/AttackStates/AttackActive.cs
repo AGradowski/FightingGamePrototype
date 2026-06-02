@@ -41,6 +41,7 @@ public class AttackActive : PlayerState
             if (player.playerAttackController.ActivateHurtbox(player.currentAttack))
             {
                 playerStateMachine.ChangeState(player.AttackRecovery);
+                player.playerComboManager.addHit();
 
             }
             ;

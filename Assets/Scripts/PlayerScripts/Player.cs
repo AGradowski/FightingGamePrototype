@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerAttackController playerAttackController;
     [HideInInspector] public PlayerHitManager playerHitManager;
     [HideInInspector] public HealthScript playerHealthManager;
+    [HideInInspector] public PlayerComboManager playerComboManager;
 
     #endregion
 
@@ -84,6 +85,7 @@ public class Player : MonoBehaviour
         playerAttackController = GetComponent<PlayerAttackController>();
         playerHitManager = GetComponent<PlayerHitManager>();
         playerHealthManager = GetComponent<HealthScript>();
+        playerComboManager = GetComponent<PlayerComboManager>();
 
         StateMachine = GetComponent<PlayerStateMachine>();
         debugHitbox = GetComponent<HitBoxDebuggerParent>();
