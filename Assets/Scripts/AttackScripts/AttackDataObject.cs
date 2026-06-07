@@ -15,13 +15,18 @@ public class AttackDataObject : ScriptableObject
     public float blockStun;
     public string animationName;
 
+    [Header("Combo data")]
+    public float pushback;
+    public bool isLauncher;
+    public float launchHeight;
+
     public enum AttackType
     {
         High,
         Medium,
         Low
     }
-
+    [Header("Other")]
     public AttackType attackType;
 
     [Header("Input")]

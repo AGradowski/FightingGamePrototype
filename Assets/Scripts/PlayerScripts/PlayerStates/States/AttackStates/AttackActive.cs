@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AttackActive : PlayerState
 {
-    // private AttackDataObject currentAttack = null;
     private float timeTillRecovery = 0;
     private float oneFrameTimer = 0;
 
@@ -10,19 +9,12 @@ public class AttackActive : PlayerState
     {
     }
 
-
     public override void EnterState()
     {
-        //currentAttack = player.inputInterpreter.GetNextCommand();
-        // player.playerAnimatorScript.PlayAnimation(currentAttack.animationName);
-        // Debug.Log("Attacking " + currentAttack);
-        // Debug.Log(currentAttack);
         Debug.Log("Activating attack");
         timeTillRecovery = player.currentAttack.activeFrames * (1.0f / 60);
-        // player.playerAttackController.ActivateHurtbox(player.currentAttack);//two hits? 
         oneFrameTimer = 1.0f / 60;
         player.debugHitbox.GenerateVisualHitbox(player.currentAttack);
-
     }
 
     public override void ExitState()
@@ -42,9 +34,7 @@ public class AttackActive : PlayerState
             {
                 playerStateMachine.ChangeState(player.AttackRecovery);
                 player.playerComboManager.addHit();
-
             }
-            ;
             oneFrameTimer = 1.0f / 60;
         }
 
@@ -57,8 +47,6 @@ public class AttackActive : PlayerState
 
     public override void TransitionChecks()
     {
-        //base.TransitionChecks();
-        // Debug.Log(currentAttack);
         if (timeTillRecovery <= 0)
         {
             //GOTO attack active
