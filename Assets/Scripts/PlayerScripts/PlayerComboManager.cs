@@ -6,16 +6,17 @@ public class PlayerComboManager : MonoBehaviour
 
     private Player player;
 
-    public void Start()
+    public void Awake()
     {
         player = GetComponent<Player>();
+        Debug.Log("Got player");
         Actions.PlayerRecoveredAfterHits += resetCounter;
 
     }
     public void addHit()
     {
         comboMeter += 1;
-        Actions.ComboChanged(player);
+        //Actions.ComboChanged(player);
         Debug.Log(player.name + " combo: " + comboMeter.ToString());
 
     }
