@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Object References
-    private GameObject other_Player;//TODO remove?
+    [HideInInspector] public GameObject other_Player;
     public GameObject mainCamera;
     public GameObject fightManager;
 

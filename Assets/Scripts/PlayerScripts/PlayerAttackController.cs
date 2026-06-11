@@ -27,8 +27,10 @@ public class PlayerAttackController : MonoBehaviour
         {
             //Debug.Log("HIT");
 
+            DirectionalAttack dAttack = new DirectionalAttack(attack, player.player_body.transform.forward);
+
             //Here message is used, because it is for the other player
-            hitColliders[0].SendMessage(Messages.HIT, attack);//TODO add
+            hitColliders[0].SendMessage(Messages.HIT, dAttack);//TODO add
             return true;
         }
         return false;

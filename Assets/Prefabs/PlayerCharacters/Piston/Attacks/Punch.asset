@@ -19,6 +19,9 @@ MonoBehaviour:
   hitStun: 100
   blockStun: 24.47
   animationName: LeftPistonPunch
+  pushback: 0.05
+  isLauncher: 0
+  launchHeight: 0
   attackType: 0
   input: RP
   origin: {x: 1, y: 0, z: 0}

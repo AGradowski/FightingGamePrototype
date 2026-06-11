@@ -5,7 +5,10 @@ public class PlayerHitManager : MonoBehaviour
     //private Player player;
     public bool _IsHit = false;
 
-    public AttackDataObject currentAttack; //totally different attack, present in the second player, not this one. Need to 
+    public AttackDataObject currentAttack;
+    //totally different attack, present in the second player, not this one. Need to 
+
+    public Vector3 currentEnemyForwardVector;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,14 +22,15 @@ public class PlayerHitManager : MonoBehaviour
 
     }
 
-    public void SetAttackHit(AttackDataObject attack)
+    public void SetAttackHit(DirectionalAttack dAttack)
     {
         // Debug.Log("Hit");
         //add copy of everything
 
         this._IsHit = true;
         //this.damage = attack.damage;
-        currentAttack = Instantiate(attack);
+        currentAttack = Instantiate(dAttack.attack);
+        currentEnemyForwardVector = dAttack.attackingPlayerForward;
     }
 
     public void ClearAttack()
