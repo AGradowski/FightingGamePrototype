@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class Idle : PlayerState
     {
 
         Debug.Log("Idle " + player.gameObject.name);
+        Actions.PlayerRecoveredAfterHits(player);
         base.EnterState();
     }
 

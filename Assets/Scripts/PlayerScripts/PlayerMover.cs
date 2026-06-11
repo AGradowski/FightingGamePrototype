@@ -61,5 +61,10 @@ public class PlayerMover : MonoBehaviour
         player.player_body.velocity.Set(0, 0, 0);
     }
 
+    public void PushPlayer(float pushback, Vector3 hittingPlayerDirection)
+    {
+        player.player_body.Move(hittingPlayerDirection * pushback);
+    }
+
 
 }

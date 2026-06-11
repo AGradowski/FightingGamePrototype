@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b79b4fed6130745aa11c6a7d2b18a9, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: Assembly-CSharp::AttackDataObject
-  damage: 50
+  damage: 1
   startupFrames: 10
   activeFrames: 50
   recoveryFrames: 5
-  hitStun: 60
+  hitStun: 100
   blockStun: 24.47
   animationName: LeftPistonPunch
+  pushback: 0.05
+  isLauncher: 0
+  launchHeight: 0
   attackType: 0
   input: RP
   origin: {x: 1, y: 0, z: 0}
