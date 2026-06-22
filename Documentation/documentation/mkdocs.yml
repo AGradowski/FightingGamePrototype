@@ -3,3 +3,4 @@ nav:
   - Home: index.md
   - Architecture: architecture.md
   - attackScripts: attackScripts.md
+  - cameraScripts: cameraScripts.md

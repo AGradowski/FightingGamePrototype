@@ -380,9 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474e173fc9712cc49b6301eb59c80f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  a: 10
-  b: {x: 0, y: 10, z: 0}
-  startPosition: {x: 0, y: 2.27, z: -5.93}
+  a: 7
+  b: -5
+  startPosition: {x: 0.4905464, y: 1.819451, z: -17.32034}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
