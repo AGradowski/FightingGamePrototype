@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   a: 10
-  b: 0
+  b: {x: 0, y: 10, z: 0}
   startPosition: {x: 0, y: 2.27, z: -5.93}
 --- !u!1 &410087039
 GameObject:

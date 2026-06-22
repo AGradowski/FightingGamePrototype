@@ -5,7 +5,7 @@ public class CameraFollow : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
     public float a = 1;
-    public float b = 0;
+    public Vector3 b;
     public Vector3 startPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,15 +15,19 @@ public class CameraFollow : MonoBehaviour
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
         middlePoint.y = 0;
         transform.position = middlePoint + startPosition;
-        transform.LookAt(middlePoint);
+        //transform.LookAt(middlePoint);
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
-        middlePoint.y = 0;
-        transform.LookAt(middlePoint);
-        transform.position = middlePoint + middlePoint.magnitude * transform.forward.normalized * a;//TODO continue
+        //middlePoint.y = 0;
+        //transform.LookAt(middlePoint);
+        transform.position =
+        middlePoint - transform.forward.normalized
+        * Vector3.Distance(player1.transform.position, player2.transform.position)
+        * a
+        + b;
     }
 }
