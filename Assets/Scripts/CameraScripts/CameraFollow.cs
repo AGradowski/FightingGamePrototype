@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
 
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
-        middlePoint.y = 0;
+        middlePoint.y = startPosition.y;
         transform.LookAt(middlePoint);
         transform.position =
         middlePoint - transform.forward.normalized
