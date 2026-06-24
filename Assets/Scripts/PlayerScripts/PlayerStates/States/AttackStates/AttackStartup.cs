@@ -7,7 +7,7 @@ public class AttackStartup : PlayerState
     }
 
     //private AttackDataObject currentAttack = null;
-    private float timeTillActive = 0;
+    private int timeTillActive = 0;
 
 
     public override void EnterState()
@@ -19,7 +19,7 @@ public class AttackStartup : PlayerState
         player.playerAnimatorScript.PlayAnimation(player.currentAttack.animationName);
         Debug.Log("Attacking " + player.currentAttack.animationName);
         Debug.Log(player.currentAttack);
-        timeTillActive = player.currentAttack.startupFrames * (1.0f / 60);
+        timeTillActive = player.currentAttack.startupFrames;
 
     }
 
@@ -30,7 +30,7 @@ public class AttackStartup : PlayerState
 
     public override void FrameUpdate()
     {
-        timeTillActive -= Time.deltaTime;
+        timeTillActive -= 1;
         //check the hitbox
 
         base.FrameUpdate();

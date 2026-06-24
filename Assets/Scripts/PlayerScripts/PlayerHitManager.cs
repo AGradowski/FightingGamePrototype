@@ -5,7 +5,7 @@ public class PlayerHitManager : MonoBehaviour
     //private Player player;
     public bool _IsHit = false;
 
-    public AttackDataObject currentAttack;
+    public AttackDataObject hitByCurrentAttack;
     //totally different attack, present in the second player, not this one. Need to 
 
     public Vector3 currentEnemyForwardVector;
@@ -29,7 +29,7 @@ public class PlayerHitManager : MonoBehaviour
 
         this._IsHit = true;
         //this.damage = attack.damage;
-        currentAttack = Instantiate(dAttack.attack);
+        hitByCurrentAttack = Instantiate(dAttack.attack);
         currentEnemyForwardVector = dAttack.attackingPlayerForward;
     }
 
@@ -37,7 +37,7 @@ public class PlayerHitManager : MonoBehaviour
     {
         this._IsHit = false;
         // this.damage = 0;
-        Destroy(currentAttack);
+        Destroy(hitByCurrentAttack);
 
     }
 }

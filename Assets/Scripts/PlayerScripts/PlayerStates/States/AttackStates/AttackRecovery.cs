@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AttackRecovery : PlayerState
 {
+    private int frameTillFinish = 0;
     public AttackRecovery(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
     }
@@ -9,11 +10,8 @@ public class AttackRecovery : PlayerState
 
     public override void EnterState()
     {
-        //currentAttack = player.inputInterpreter.GetNextCommand();
-        // player.playerAnimatorScript.PlayAnimation(currentAttack.animationName);
-        // Debug.Log("Attacking " + currentAttack);
-        // Debug.Log(currentAttack);
         Debug.Log("Recovering attack");
+        frameTillFinish = player.currentAttack.recoveryFrames;
 
     }
 
@@ -24,6 +22,7 @@ public class AttackRecovery : PlayerState
 
     public override void FrameUpdate()
     {
+        frameTillFinish -= 1;
         base.FrameUpdate();
     }
 
@@ -33,12 +32,8 @@ public class AttackRecovery : PlayerState
 
     public override void TransitionChecks()
     {
-        //base.TransitionChecks();
-        // Debug.Log(currentAttack);
-
-        if (!player.animator.GetCurrentAnimatorStateInfo(0).IsName(player.currentAttack.animationName))
+        if (frameTillFinish <= 0)
         {
-            //Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");//IT gets here once, then does it again?
             player.currentAttack = null;
             playerStateMachine.ChangeState(player.IdleState);
             return;

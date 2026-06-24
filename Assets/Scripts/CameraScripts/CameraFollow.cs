@@ -17,8 +17,8 @@ public class CameraFollow : MonoBehaviour
         transform.position = middlePoint + startPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    // LateUpdate is good for camera in 3rd person https://docs.unity3d.com/es/2018.3/Manual/ExecutionOrder.html
+    void LateUpdate()
     {
 
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);

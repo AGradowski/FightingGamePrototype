@@ -29,7 +29,6 @@ public class Idle : PlayerState
 
         moveInput = player.inputInterpreter.GetMovementInput();
 
-        //        Debug.Log(moveInput + player.gameObject.name);
         attackInput = player.inputInterpreter.GetNextCommand();
         base.FrameUpdate();
 
@@ -50,14 +49,11 @@ public class Idle : PlayerState
             Debug.Log("HIT SEEN");
             playerStateMachine.ChangeState(player.HitStun);
         }
-        // base.TransitionChecks();
         if (player.inputInterpreter.GetNextCommand() is not null)
         {
             playerStateMachine.ChangeState(player.AttackStartup);
             return;
         }
-
-
         if (moveInput == "6")
         {
             playerStateMachine.ChangeState(player.MovingState);
