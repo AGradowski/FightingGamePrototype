@@ -25,7 +25,6 @@ public class Moving : PlayerState
 
         moveInput = player.inputInterpreter.GetMovementInput();
         attackInput = player.inputInterpreter.GetNextCommand();
-        //  Debug.Log("Moving");
         player.playerMover.MovePlayer();
 
         base.FrameUpdate();

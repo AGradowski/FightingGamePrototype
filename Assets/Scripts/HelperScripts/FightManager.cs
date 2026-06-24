@@ -15,6 +15,7 @@ public class FightManager : MonoBehaviour
 
     private GameObject player1ObjectInstance, player2ObjectInstance;
 
+
     // public GameObject uiManager;
 
 
@@ -34,7 +35,9 @@ public class FightManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        Application.targetFrameRate = 60;
         Setup();
+
     }
 
     void Start()

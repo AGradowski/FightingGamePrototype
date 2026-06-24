@@ -10,9 +10,9 @@ public class HitStun : Stun
     public override void EnterState()
     {
         Debug.Log("I got hit" + player.gameObject.name);
-        player.playerHealthManager.ApplyDamage(player.playerHitManager.currentAttack.damage);
-        player.playerMover.PushPlayer(player.playerHitManager.currentAttack.pushback, player.playerHitManager.currentEnemyForwardVector);
-        base.timeToRecover = player.playerHitManager.currentAttack.hitStun * (1.0f / 60);
+        player.playerHealthManager.ApplyDamage(player.playerHitManager.hitByCurrentAttack.damage);
+        player.playerMover.PushPlayer(player.playerHitManager.hitByCurrentAttack.pushback, player.playerHitManager.currentEnemyForwardVector);
+        base.timeToRecover = player.playerHitManager.hitByCurrentAttack.hitStun;
         base.EnterState();
     }
 

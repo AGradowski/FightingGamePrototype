@@ -22,13 +22,13 @@ public class CrouchBlocking : Blocking
 
     public override void TransitionChecks()
     {
-        if (player.playerHitManager._IsHit && player.playerHitManager.currentAttack.attackType == AttackDataObject.AttackType.Low)
+        if (player.playerHitManager._IsHit && player.playerHitManager.hitByCurrentAttack.attackType == AttackDataObject.AttackType.Low)
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
             playerStateMachine.ChangeState(player.CrouchBlockStun);//add celaring of the state, as it is being confirmed
             return;
         }
-        if (player.playerHitManager._IsHit && player.playerHitManager.currentAttack.attackType == AttackDataObject.AttackType.Medium)
+        if (player.playerHitManager._IsHit && player.playerHitManager.hitByCurrentAttack.attackType == AttackDataObject.AttackType.Medium)
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
             playerStateMachine.ChangeState(player.HitStun);//add celaring of the state, as it is being confirmed

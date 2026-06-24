@@ -6,20 +6,20 @@ public class Stun : PlayerState
     {
     }
 
-    protected float timeToRecover = 0;
+    protected int timeToRecover = 0;
 
     public override void FrameUpdate()
     {
-        // Debug.Log("Waiting in stun" + player.gameObject.name + timeToRecover);
-        timeToRecover -= Time.deltaTime;
+        timeToRecover -= 1;
         base.FrameUpdate();
     }
 
     public override void ExitState()
     {
+        //just in case any attacks with multiple active frames, might need to handle it differently
+        //but this migh also allow for things like chip damage, so might be good to keep?
         timeToRecover = 0;
-        player.playerHitManager.ClearAttack();//just in case any attacks with multiple active frames, might need to handle it differently
-                                              //but this migh also allow for things like chip damage, so might be good to keep?
+        player.playerHitManager.ClearAttack();
         Debug.Log("Recovered " + player.gameObject.name);
     }
 

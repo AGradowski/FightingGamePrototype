@@ -10,14 +10,13 @@ public class CrouchBlockStun : Stun
     {
         Debug.Log("I got hit, but I block crouching" + player.gameObject.name);
 
-
-        //ooooo, noo, not the correct attack
-        base.timeToRecover = player.playerHitManager.currentAttack.blockStun * (1.0f / 60);
+        //check for the attack that player was hit by, and do the onBlock recovery
+        base.timeToRecover = player.playerHitManager.hitByCurrentAttack.blockStun;
         Debug.Log("Time to recover" + player.gameObject.name + base.timeToRecover);
-        //player.playerHitManager.ClearAttack();
-        //animationController.SetTrigger(animationName);
-        //chip damage apply
-        //additional effects apply
+
+        //TODO chip damage apply
+        //TODO additional effects apply
+
         base.EnterState();
     }
 }

@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class AttackActive : PlayerState
 {
-    private float timeTillRecovery = 0;
-    private float oneFrameTimer = 0;
+    private int frameTillRecovery = 0;//number of frames the attack should be active
 
     public AttackActive(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
@@ -12,8 +11,7 @@ public class AttackActive : PlayerState
     public override void EnterState()
     {
         Debug.Log("Activating attack");
-        timeTillRecovery = player.currentAttack.activeFrames * (1.0f / 60);
-        oneFrameTimer = 1.0f / 60;
+        frameTillRecovery = player.currentAttack.activeFrames;
         player.debugHitbox.GenerateVisualHitbox(player.currentAttack);
     }
 
@@ -25,17 +23,12 @@ public class AttackActive : PlayerState
     public override void FrameUpdate()
     {
 
-        timeTillRecovery -= Time.deltaTime;
-        oneFrameTimer -= Time.deltaTime;
-        //check the hitbox
-        if (oneFrameTimer <= 0)
+        frameTillRecovery -= 1;
+        //check the hitbox, each frame it is active
+        if (player.playerAttackController.ActivateHurtbox(player.currentAttack))
         {
-            if (player.playerAttackController.ActivateHurtbox(player.currentAttack))
-            {
-                playerStateMachine.ChangeState(player.AttackRecovery);
-                player.playerComboManager.addHit();
-            }
-            oneFrameTimer = 1.0f / 60;
+            playerStateMachine.ChangeState(player.AttackRecovery);
+            player.playerComboManager.addHit();
         }
 
         base.FrameUpdate();
@@ -47,7 +40,7 @@ public class AttackActive : PlayerState
 
     public override void TransitionChecks()
     {
-        if (timeTillRecovery <= 0)
+        if (frameTillRecovery <= 0)
         {
             //GOTO attack active
             //TODO change this to attack startup
