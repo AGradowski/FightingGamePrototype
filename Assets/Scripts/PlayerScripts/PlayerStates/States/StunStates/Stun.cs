@@ -8,6 +8,12 @@ public class Stun : PlayerState
 
     protected int timeToRecover = 0;
 
+    public override void EnterState()
+    {
+        player.playerHitManager.ClearAttack();
+        base.EnterState();
+    }
+
     public override void FrameUpdate()
     {
         timeToRecover -= 1;
@@ -19,7 +25,7 @@ public class Stun : PlayerState
         //just in case any attacks with multiple active frames, might need to handle it differently
         //but this migh also allow for things like chip damage, so might be good to keep?
         timeToRecover = 0;
-        player.playerHitManager.ClearAttack();
+        //player.playerHitManager.ClearAttack();
         Debug.Log("Recovered " + player.gameObject.name);
     }
 
