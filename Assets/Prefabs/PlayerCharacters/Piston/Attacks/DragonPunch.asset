@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DragonPunch
   m_EditorClassIdentifier: Assembly-CSharp::AttackDataObject
   damage: 34
-  startupFrames: 100
-  activeFrames: 48
-  recoveryFrames: 38
+  startupFrames: 52
+  activeFrames: 10
+  recoveryFrames: 21
   hitStun: 38
   blockStun: 45
   animationName: LeftPistonPunch
@@ -23,7 +23,7 @@ MonoBehaviour:
   isLauncher: 0
   launchHeight: 0
   attackType: 0
-  input: 2
+  input: 236:LP
   origin: {x: 0, y: 0, z: 0}
   size: {x: 0, y: 0, z: 0}
   radius: 0

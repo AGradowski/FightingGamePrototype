@@ -17,13 +17,13 @@ MonoBehaviour:
   activeFrames: 50
   recoveryFrames: 5
   hitStun: 100
-  blockStun: 24.47
+  blockStun: 24
   animationName: LeftPistonPunch
   pushback: 0.05
   isLauncher: 0
   launchHeight: 0
   attackType: 0
-  input: RP
+  input: :RP
   origin: {x: 1, y: 0, z: 0}
   size: {x: -0.35, y: 0, z: 0}
   radius: 0.56

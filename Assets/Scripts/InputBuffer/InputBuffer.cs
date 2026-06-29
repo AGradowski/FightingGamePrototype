@@ -29,7 +29,7 @@ public class InputBuffer
     {
         int m = input.Length;
         int n = inputHistory.Count;
-        Debug.Log(inputHistory.Count);
+        //   Debug.Log(inputHistory.Count);
         if (m > n) return false;//just in case of edge case at the beggining
 
         int i = 0;
@@ -40,14 +40,25 @@ public class InputBuffer
         while (node is not null)
         {
             fullInputCheck += node.Value.MovementInputString()[0];
+            if (input[i] == HelpStrings.INPUT_SEPARATOR[0])
+            {
+                string attackInput = input.Substring(i + 1);
+                if (attackInput == node.Value.AttackToString())
+                {
+                    return true;
+                }
+            }
             if (node.Value.MovementInputString()[0] == input[i])
             {
                 i += 1;
                 if (i == input.Length)
                 {
+
                     return true;//found all the input parts, it is a subsequence
                 }
             }
+
+
             node = node.Previous;
         }
         Debug.Log(fullInputCheck);

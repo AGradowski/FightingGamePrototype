@@ -24,7 +24,7 @@ public class FrameInput
         leftKick = false;
         leftPunch = false;
         rightKick = false;
-        moveInput = "5";
+        //moveInput = "5";
     }
 
     public string AttackToString()

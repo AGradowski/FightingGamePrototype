@@ -27,6 +27,7 @@ public class InputInterpreter : MonoBehaviour
     {
         inputBuffer.addInput(frameInput);
         AnalyzeInput();
+        frameInput.Clear();
     }
 
     public virtual void AnalyzeInput()
@@ -41,6 +42,7 @@ public class InputInterpreter : MonoBehaviour
                 return;
                 //TODO add checking for similar results, for example if LP+RP does not exist, then LP should be chosen
             }
+
         }
         nextAttack = null;
 

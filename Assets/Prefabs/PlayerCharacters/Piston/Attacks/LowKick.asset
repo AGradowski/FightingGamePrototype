@@ -23,7 +23,7 @@ MonoBehaviour:
   isLauncher: 0
   launchHeight: 0
   attackType: 2
-  input: RK
+  input: :RK
   origin: {x: 0, y: 0, z: 0}
   size: {x: 0, y: 0, z: 0}
   radius: 2
