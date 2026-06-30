@@ -4,3 +4,4 @@ nav:
   - Architecture: architecture.md
   - attackScripts: attackScripts.md
   - cameraScripts: cameraScripts.md
+  - Input: input.md

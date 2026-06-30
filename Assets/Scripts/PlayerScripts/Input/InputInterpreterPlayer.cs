@@ -29,7 +29,7 @@ public class InputInterpreterPlayer : InputInterpreter
 
 
 
-    List<FrameInput> inputBuffer = new List<FrameInput>();
+    //List<FrameInput> inputBuffer = new List<FrameInput>();
 
 
 
@@ -52,8 +52,6 @@ public class InputInterpreterPlayer : InputInterpreter
         inputMapping.Add(Vector2.zero, "5");
 
     }
-
-
 
 
     public void OnRightPunch()
@@ -91,6 +89,7 @@ public class InputInterpreterPlayer : InputInterpreter
         moveDirection = Vector2Int.RoundToInt(moveDirection);
         nextMovement = inputMapping.GetValueOrDefault(moveDirection);
 
+        frameInput.moveInput = nextMovement;
     }
 
 

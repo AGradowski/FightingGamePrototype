@@ -16,11 +16,14 @@ MonoBehaviour:
   startupFrames: 10
   activeFrames: 10
   recoveryFrames: 10
-  hitStun: 22.8
+  hitStun: 22
   blockStun: 11
   animationName: LeftPistonPunch
+  pushback: 0
+  isLauncher: 0
+  launchHeight: 0
   attackType: 1
-  input: LK+RK
+  input: :LK+RK
   origin: {x: 0, y: 0, z: 0}
   size: {x: 0, y: 0, z: 0}
   radius: 1

@@ -40,3 +40,9 @@ public class UINames
     public const string HP_MASK_PLAYER2 = "HealthBarMask2";
 }
 
+public class HelpStrings
+{
+    public const string INPUT_SEPARATOR = ":";
+
+}
+
