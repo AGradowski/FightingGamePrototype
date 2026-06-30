@@ -17,10 +17,7 @@ public class InputInterpreter : MonoBehaviour
     }
     public virtual AttackDataObject GetNextCommand()
     {
-
         return nextAttack;
-
-        //TODO rest of analysis, taking into account previous inputs
     }
 
     public virtual void inputUpdate()
@@ -34,10 +31,8 @@ public class InputInterpreter : MonoBehaviour
     {
         foreach (AttackDataObject attack in moveList)//make sure to usepriority queue for the inputs
         {
-            //Debug.Log("Check");
             if (inputBuffer.containsMotionInput(attack.input))
             {
-                // Debug.Log("Found attack");
                 nextAttack = attack;
                 return;
                 //TODO add checking for similar results, for example if LP+RP does not exist, then LP should be chosen
@@ -45,11 +40,6 @@ public class InputInterpreter : MonoBehaviour
 
         }
         nextAttack = null;
-
-
-
-        //TODO add checking in buffer for motion input
-
     }
 
 

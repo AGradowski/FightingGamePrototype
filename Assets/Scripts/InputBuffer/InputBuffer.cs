@@ -29,7 +29,6 @@ public class InputBuffer
     {
         int m = input.Length;
         int n = inputHistory.Count;
-        //   Debug.Log(inputHistory.Count);
         if (m > n) return false;//just in case of edge case at the beggining
 
         int i = 0;
@@ -57,8 +56,6 @@ public class InputBuffer
                     return true;//found all the input parts, it is a subsequence
                 }
             }
-
-
             node = node.Previous;
         }
         Debug.Log(fullInputCheck);
