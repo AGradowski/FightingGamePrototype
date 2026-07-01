@@ -18,10 +18,11 @@ MonoBehaviour:
   recoveryFrames: 21
   hitStun: 38
   blockStun: 45
-  animationName: LeftPistonPunch
+  animationName: RoundStart
   pushback: 0
   isLauncher: 0
   launchHeight: 0
+  _IsCinematicHit: 0
   attackType: 0
   input: 236:LP
   origin: {x: 0, y: 0, z: 0}

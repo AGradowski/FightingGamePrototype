@@ -24,6 +24,8 @@ public class StateNames
     public const string ATTACK = "Attack";
     public const string STAND_BLOCKING = "StandBlocking";
     public const string CROUCH_BLOCKING = "CrouchBlocking";
+
+    public const string ROUND_START = "RoundStart";
 }
 
 public class Messages

@@ -4,6 +4,7 @@ public class PlayerHitManager : MonoBehaviour
 {
     //private Player player;
     public bool _IsHit = false;
+    public bool _IsCinematicHit = false;
 
     public AttackDataObject hitByCurrentAttack;
     //totally different attack, present in the second player, not this one. Need to 
@@ -28,6 +29,7 @@ public class PlayerHitManager : MonoBehaviour
         //add copy of everything
 
         this._IsHit = true;
+        this._IsCinematicHit = dAttack.attack._IsCinematicHit;
         //this.damage = attack.damage;
         hitByCurrentAttack = Instantiate(dAttack.attack);
         currentEnemyForwardVector = dAttack.attackingPlayerForward;

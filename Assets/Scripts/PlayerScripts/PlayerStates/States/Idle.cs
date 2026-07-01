@@ -47,7 +47,16 @@ public class Idle : PlayerState
         if (player.playerHitManager._IsHit)
         {
             Debug.Log("HIT SEEN");
-            playerStateMachine.ChangeState(player.HitStun);
+            if (player.playerHitManager._IsCinematicHit)
+            {
+                playerStateMachine.ChangeState(player.HitStun);
+
+            }
+            else
+            {
+                playerStateMachine.ChangeState(player.HitStun);
+            }
+
         }
         if (player.inputInterpreter.GetNextCommand() is not null)
         {

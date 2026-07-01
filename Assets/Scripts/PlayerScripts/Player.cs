@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public Moving MovingState { get; set; }
     [HideInInspector] public AttackActive AttackActive { get; set; }
     [HideInInspector] public AttackStartup AttackStartup { get; set; }
+    [HideInInspector] public RoundStart RoundStart { get; set; }
+
 
 
 
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
 
     #region Player Fields
     [HideInInspector] public int playerID = -1;
+    [HideInInspector] public bool roundReady = false;
     #endregion
 
 
@@ -102,9 +105,9 @@ public class Player : MonoBehaviour
         AttackRecovery = new AttackRecovery(this, StateMachine, animator, StateNames.ATTACK);
         BlockStun = new BlockStun(this, StateMachine, animator, StateNames.BLOCK_STUN);
         CrouchBlockStun = new CrouchBlockStun(this, StateMachine, animator, StateNames.CROUCH_BLOCK_STUN);
+        RoundStart = new RoundStart(this, StateMachine, animator, StateNames.ROUND_START);
 
-
-
+        StateMachine.Initialize(RoundStart);
     }
 
     void Start()
@@ -124,7 +127,7 @@ public class Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer(Names.LAYER_OF_PLAYER_2);
         }
 
-        StateMachine.Initialize(IdleState);
+
     }
 
     void Update()
@@ -137,6 +140,18 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentPlayerState.PhysicsUpdate();
     }
+
+    public void setToRoundStart()
+    {
+        this.roundReady = false;
+        StateMachine.ChangeState(this.RoundStart);
+    }
+
+    public void setToIdle()
+    {
+        this.roundReady = true;
+    }
+
 
 
 
