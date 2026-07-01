@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float a = 1;
     public float b = 1;
     public Vector3 startPosition;
+    public float minDistance = 10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,10 +25,15 @@ public class CameraFollow : MonoBehaviour
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
         middlePoint.y = startPosition.y;
         transform.LookAt(middlePoint);
+        Vector3 oldPos = transform.position;
         transform.position =
         middlePoint - transform.forward.normalized
         * Vector3.Distance(player1.transform.position, player2.transform.position)
         * a
         + b * transform.forward.normalized;
+        if (Vector3.Distance(transform.position, middlePoint) < minDistance)
+        {
+            transform.position = oldPos;
+        }
     }
 }
