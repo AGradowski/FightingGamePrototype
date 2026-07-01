@@ -16,6 +16,7 @@ public class AttackDataObject : ScriptableObject
     public float pushback;
     public bool isLauncher;
     public float launchHeight;
+    public bool _IsCinematicHit;
 
     public enum AttackType
     {

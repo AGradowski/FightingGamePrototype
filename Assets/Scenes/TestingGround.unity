@@ -660,6 +660,7 @@ MonoBehaviour:
   SpawnPoint1: {fileID: 1047365753}
   SpawnPoint2: {fileID: 845447920}
   mainCamera: {fileID: 330585543}
+  roundStartCinematicTimer: 10
 --- !u!4 &1781144568
 Transform:
   m_ObjectHideFlags: 0

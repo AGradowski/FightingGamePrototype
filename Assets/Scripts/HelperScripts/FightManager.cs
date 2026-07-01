@@ -16,6 +16,12 @@ public class FightManager : MonoBehaviour
     private GameObject player1ObjectInstance, player2ObjectInstance;
 
 
+    #region Cinematic Timers
+    public int roundStartCinematicTimer = 1;
+
+    #endregion
+
+
     // public GameObject uiManager;
 
 
@@ -161,6 +167,9 @@ public class FightManager : MonoBehaviour
         roundNumber += 1;
         Debug.Log(roundNumber);
         playerDiedFlag = false;
+        //Actions.RoundStart();
+        StartCoroutine(RoundStartCoroutine());
+
         //Setup();
     }
 
@@ -169,6 +178,16 @@ public class FightManager : MonoBehaviour
         Debug.Log(winner.name + " won!");
         SceneManager.LoadScene(0);
     }
+
+    IEnumerator RoundStartCoroutine()
+    {
+        player1.setToRoundStart();
+        player2.setToRoundStart();
+        yield return new WaitForSeconds(this.roundStartCinematicTimer);
+        player1.setToIdle();
+        player2.setToIdle();
+    }
+
 
 
 
