@@ -4,30 +4,28 @@ using UnityEngine.InputSystem;
 
 public class CinematicAttack : Cinematic
 {
-    //need to check, when the cinematic thing eneded, like cinematic Manager?
-    //actually, always it will be both players
     public CinematicAttack(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
     }
 
-
-
     public override void EnterState()
     {
-        Debug.Log("Cinematic " + player.gameObject.name);
-        base.EnterState();
-    }
-
-    public override void ExitState()
-    {
-        base.ExitState();
+        isAnimationFinished = false;
+        isExitingState = false;
+        startTime = Time.time;
+        player.animator.Play(player.currentAttack.animationName);//this is for the attacking player
+        //for the player hit, need another state
     }
 
     public override void TransitionChecks()
     {
 
+        if (!player.animator.GetCurrentAnimatorStateInfo(0).IsName(player.currentAttack.animationName))
+        {
+            player.currentAttack = null;
+            playerStateMachine.ChangeState(player.IdleState);
+            return;
+        }
         base.TransitionChecks();
     }
-
-
 }
