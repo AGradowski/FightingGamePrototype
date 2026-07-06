@@ -186,6 +186,7 @@ MonoBehaviour:
   fightManager: {fileID: 0}
   currentAttack: {fileID: 0}
   playerID: -1
+  roundReady: 0
 --- !u!114 &7400642052069740396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHitManager
   _IsHit: 0
+  _IsCinematicHit: 0
   hitByCurrentAttack: {fileID: 0}
   currentEnemyForwardVector: {x: 0, y: 0, z: 0}
 --- !u!114 &3583922914144523567

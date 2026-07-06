@@ -54,12 +54,12 @@ public class HitboxDebugger : HitBoxDebuggerParent
         sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);//assume primitive is alwys radius 0.5
 
 
-        sphere.transform.localScale = attack.radius * new Vector3(2f, 2f, 2f);
+        sphere.transform.localScale = attack.hitBoxes[0].radius * new Vector3(2f, 2f, 2f);
 
         //Physics.OverlapSphere(player.transform.position + attack.origin, attack.radius, player.targetCollisionLayer);
         sphere.transform.parent = gameObject.transform;
         //sphere.transform.localScale = scollider.transform.localScale;
-        sphere.transform.position = player.transform.position + attack.origin;
+        sphere.transform.position = player.transform.position + attack.hitBoxes[0].origin;
         sphere.GetComponent<SphereCollider>().isTrigger = true;
         sphere.GetComponent<Renderer>().material = hitbox;
 

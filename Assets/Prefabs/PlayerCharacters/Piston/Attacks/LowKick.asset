@@ -22,8 +22,9 @@ MonoBehaviour:
   pushback: 0
   isLauncher: 0
   launchHeight: 0
+  _IsCinematicHit: 0
   attackType: 2
   input: :RK
-  origin: {x: 0, y: 0, z: 0}
-  size: {x: 0, y: 0, z: 0}
-  radius: 2
+  hitBoxes:
+  - origin: {x: 0, y: 0, z: 0}
+    radius: 3

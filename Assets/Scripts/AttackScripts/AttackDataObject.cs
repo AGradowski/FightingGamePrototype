@@ -33,8 +33,6 @@ public class AttackDataObject : ScriptableObject
     //Attack strings? to which attack it goes? - possibly array of attacks?
 
     //TODO - so much more, now just a simple punch will suffice
-    [Header("HurtBoxData")]
-    public Vector3 origin; //possibly add more hurtboxes, for better customization
-    public Vector3 size;
-    public float radius;
+    [Header("HitBoxData")]
+    public HitBox[] hitBoxes;
 }
