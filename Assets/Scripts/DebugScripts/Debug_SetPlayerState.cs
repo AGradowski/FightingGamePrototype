@@ -3,7 +3,6 @@ using UnityEngine;
 public class Debug_SetPlayerState : MonoBehaviour
 {
     private Player player;
-    //public string chosenState = StateNames.IDLE;
     private PlayerState state;
     private InputInterpreterDebug inputInterpreterDebug;
 
@@ -55,8 +54,6 @@ public class Debug_SetPlayerState : MonoBehaviour
     {
         if (chosenState != prevState)
         {
-
-
             //assuming it always needs to get back to idle at some point
             switch (chosenState)
             {

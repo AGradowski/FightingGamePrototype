@@ -14,8 +14,6 @@ public class PlayerAnimatorScript : MonoBehaviour
     {
         //TODO check if animation can be played
 
-
-        //player.animator.Play("");//might be better and more controllable
     }
 
     //add animation buffer - message queue - priority queue? For the counters, bursts etc? Or should I handle it by states?

@@ -9,9 +9,6 @@ public class RoundStart : Cinematic
     public RoundStart(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
     }
-
-
-
     public override void EnterState()
     {
         Debug.Log("RoundStart " + player.gameObject.name);
@@ -22,8 +19,6 @@ public class RoundStart : Cinematic
     {
         if (player.roundReady)
         {
-            //Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");//IT gets here once, then does it again?
-            // player.currentAttack = null;
             playerStateMachine.ChangeState(player.IdleState);
             return;
         }

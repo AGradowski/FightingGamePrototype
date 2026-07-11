@@ -62,7 +62,6 @@ public class FrameInput
 
     public string MovementInputString()
     {
-        //Debug.Log(moveInput);
         return moveInput;
     }
 

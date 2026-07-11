@@ -32,13 +32,10 @@ public class InputBuffer
         if (m > n) return false;//just in case of edge case at the beggining
 
         int i = 0;
-        //   string fullInputCheck = "";
-
         LinkedListNode<FrameInput> node = inputHistory.Last;
 
         while (node is not null)
         {
-            // fullInputCheck += node.Value.MovementInputString()[0];
             if (input[i] == HelpStrings.INPUT_SEPARATOR[0])
             {
                 string attackInput = input.Substring(i + 1);
@@ -58,7 +55,6 @@ public class InputBuffer
             }
             node = node.Previous;
         }
-        //        Debug.Log(fullInputCheck);
         return false;
     }
 

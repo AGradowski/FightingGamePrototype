@@ -12,11 +12,7 @@ public class PlayerMover : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-        Vector3 firstMove = new Vector2(1, 0).x * player.player_body.transform.forward;// + (velocity.y * Vector3.up);
-        //Debug.Log(finalMove);
-
-        // if (player.StateMachine.CurrentPlayerState is Moving)//TODO better solution, this is not working
-        //{
+        Vector3 firstMove = new Vector2(1, 0).x * player.player_body.transform.forward;
         player.player_body.Move(firstMove * Time.deltaTime);
     }
 
@@ -32,31 +28,18 @@ public class PlayerMover : MonoBehaviour
         }
         if (input == "4")
         {
-            //Debug.Log("AAAA");
             movementVector = new Vector2(-1.0f * player.backwardSpeed, 0.0f);
         }
 
-        /*if (player.player_body.isGrounded && player.player_body.velocity.y < 0)
-        {
-            velocity.y = 0f;
-        }
-
-        velocity.y += player.gravityValue * Time.deltaTime;*/
-
-        Vector3 finalMove = movementVector.x * player.player_body.transform.forward;// + (velocity.y * Vector3.up);
-        //Debug.Log(finalMove);
-
-        // if (player.StateMachine.CurrentPlayerState is Moving)//TODO better solution, this is not working
-        //{
+        Vector3 finalMove = movementVector.x * player.player_body.transform.forward;
         player.player_body.Move(finalMove * Time.deltaTime);
-        //}
+
 
 
     }
 
     public void StopPlayer()
     {
-        // Debug.Log("Player mover - stopping the player");
         player.player_body.Move(new Vector3(0, 0, 0));
         player.player_body.velocity.Set(0, 0, 0);
     }

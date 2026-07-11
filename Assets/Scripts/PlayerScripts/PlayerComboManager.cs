@@ -16,7 +16,6 @@ public class PlayerComboManager : MonoBehaviour
     public void addHit()
     {
         comboMeter += 1;
-        //Actions.ComboChanged(player);
         Debug.Log(player.name + " combo: " + comboMeter.ToString());
 
     }

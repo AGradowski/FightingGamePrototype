@@ -28,13 +28,6 @@ public class Moving : PlayerState
         player.playerMover.MovePlayer();
 
         base.FrameUpdate();
-
-
-        //check the input buffer
-        //action based on it
-        //Debug.Log(player.inputBuffer.ConsumeInput());
-        // playerStateMachine.ChangeState(player.MovingState);
-
     }
 
     public override void TransitionChecks()

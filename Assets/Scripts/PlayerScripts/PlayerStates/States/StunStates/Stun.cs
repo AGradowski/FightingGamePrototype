@@ -25,7 +25,6 @@ public class Stun : PlayerState
         //just in case any attacks with multiple active frames, might need to handle it differently
         //but this migh also allow for things like chip damage, so might be good to keep?
         timeToRecover = 0;
-        //player.playerHitManager.ClearAttack();
         Debug.Log("Recovered " + player.gameObject.name);
     }
 

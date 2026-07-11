@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 8891548337570548946}
   - component: {fileID: -8406486839583793233}
   m_Layer: 0
-  m_Name: PistonTryingModel
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

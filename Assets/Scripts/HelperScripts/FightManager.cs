@@ -22,11 +22,6 @@ public class FightManager : MonoBehaviour
     #endregion
 
 
-    // public GameObject uiManager;
-
-
-
-
     #region roundManagement
     private int roundNumber = 0;
     private int winsP1 = 0, winsP2 = 0;
@@ -35,8 +30,6 @@ public class FightManager : MonoBehaviour
     private IEnumerator coroutine;
 
     #endregion
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -62,12 +55,10 @@ public class FightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //check for health of players
     }
 
     void LateUpdate()
     {
-        //add checking for flags
     }
 
     void Setup()
@@ -80,13 +71,6 @@ public class FightManager : MonoBehaviour
         player2 = player2ObjectInstance.GetComponent<Player>();
         //note, the orders matters for now, only one gets the Keyboard + mouse control scheme
         // the first one above
-
-
-
-        //player1ObjectInstance.GetComponent<Player>().SetOpponentTransform(player2ObjectInstance.transform);
-        //
-        //player2ObjectInstance.GetComponent<PlayerController>().SetOpponentTransform(player1ObjectInstance.transform);
-
         player1.mainCamera = mainCamera;
 
 
@@ -111,7 +95,6 @@ public class FightManager : MonoBehaviour
 
     private IEnumerator CheckDeath()
     {
-        //playerDiedFlag = true;
         yield return new WaitForEndOfFrame();
         if (player1.playerHealthManager.healthValue <= 0 && player2.playerHealthManager.healthValue <= 0)
         {
@@ -151,11 +134,6 @@ public class FightManager : MonoBehaviour
 
             player1.transform.position = SpawnPoint1.transform.position;
             player2.transform.position = SpawnPoint2.transform.position;
-            //restart
-            //ui update
-            //move to the center
-            //blovk movement for x
-
         }
         RoundStart();
 
@@ -167,10 +145,7 @@ public class FightManager : MonoBehaviour
         roundNumber += 1;
         Debug.Log(roundNumber);
         playerDiedFlag = false;
-        //Actions.RoundStart();
         StartCoroutine(RoundStartCoroutine());
-
-        //Setup();
     }
 
     private void GameEnd(Player winner)
@@ -187,10 +162,4 @@ public class FightManager : MonoBehaviour
         player1.setToIdle();
         player2.setToIdle();
     }
-
-
-
-
-
-
 }

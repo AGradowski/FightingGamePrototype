@@ -26,13 +26,6 @@ public class InputInterpreterPlayer : InputInterpreter
 
     private Dictionary<Vector2, string> inputMapping = new Dictionary<Vector2, string>();
 
-
-
-
-    //List<FrameInput> inputBuffer = new List<FrameInput>();
-
-
-
     void Start()
     {
         player = GetComponent<Player>();
@@ -57,12 +50,6 @@ public class InputInterpreterPlayer : InputInterpreter
     public void OnRightPunch()
     {
         frameInput.rightPunch = true;
-
-        //TODO optimize, move to analyze input function
-
-
-        //assume 60 fps, 7 frames input buffer, so I need to clear input after that, so 7/60 * second?
-
     }
 
     public void OnLeftPunch()

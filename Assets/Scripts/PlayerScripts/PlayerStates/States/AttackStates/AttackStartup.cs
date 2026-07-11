@@ -42,16 +42,6 @@ public class AttackStartup : PlayerState
 
     public override void TransitionChecks()
     {
-        //base.TransitionChecks();
-        // Debug.Log(currentAttack);
-
-        // if (!player.animator.GetCurrentAnimatorStateInfo(0).IsName(player.currentAttack.animationName))
-        //{
-        //Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");//IT gets here once, then does it again?
-        //  player.currentAttack = null;
-        // playerStateMachine.ChangeState(player.IdleState);
-        // return;
-        // }
         if (timeTillActive <= 0)
         {
             //GOTO attack active

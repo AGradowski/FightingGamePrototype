@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerHitManager : MonoBehaviour
 {
-    //private Player player;
     public bool _IsHit = false;
     public bool _IsCinematicHit = false;
 
@@ -14,7 +13,6 @@ public class PlayerHitManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -25,12 +23,8 @@ public class PlayerHitManager : MonoBehaviour
 
     public void SetAttackHit(DirectionalAttack dAttack)
     {
-        // Debug.Log("Hit");
-        //add copy of everything
-
         this._IsHit = true;
         this._IsCinematicHit = dAttack.attack._IsCinematicHit;
-        //this.damage = attack.damage;
         hitByCurrentAttack = Instantiate(dAttack.attack);
         currentEnemyForwardVector = dAttack.attackingPlayerForward;
     }
@@ -38,7 +32,6 @@ public class PlayerHitManager : MonoBehaviour
     public void ClearAttack()
     {
         this._IsHit = false;
-        // this.damage = 0;
         Destroy(hitByCurrentAttack);
 
     }

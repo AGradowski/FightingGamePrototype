@@ -18,15 +18,10 @@ public class PlayerAttackController : MonoBehaviour
 
     public bool ActivateHurtbox(AttackDataObject attack)
     {
-        //        Debug.Log("Searching in:" + player.targetCollisionLayer);
-
-
         Collider[] hitColliders = Physics.OverlapSphere(player.transform.position + attack.origin, attack.radius, player.targetCollisionLayer);
 
         if (hitColliders.Length > 0) //TODO, there are two colliders present in the player, box collider AND CHARCTER CONTROLLER
         {
-            //Debug.Log("HIT");
-
             DirectionalAttack dAttack = new DirectionalAttack(attack, player.player_body.transform.forward);
 
             //Here message is used, because it is for the other player

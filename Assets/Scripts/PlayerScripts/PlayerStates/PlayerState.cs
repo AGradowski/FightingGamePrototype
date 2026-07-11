@@ -14,7 +14,7 @@ public class PlayerState
     protected float startTime;
     //Other?
 
-    //animation boolean ??? co to, wspomnianie w tutorialu https://medium.com/@jojackblack/building-a-state-machine-in-unity-with-c-b1c7c9c80a04
+    //animation boolean ??? what is it? https://medium.com/@jojackblack/building-a-state-machine-in-unity-with-c-b1c7c9c80a04
     public PlayerState(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName)
     {
         this.player = player;
@@ -55,7 +55,4 @@ public class PlayerState
     {
         isAnimationFinished = true;
     }
-
-    //More?
-
 }
