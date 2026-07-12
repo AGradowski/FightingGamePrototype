@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     //for testing purposes, list will suffice
 
     public List<AttackDataObject> moveList;
-    public int displayAttackIndex = 0;
+    //public int displayAttackIndex = 0;
 
     public float forwardSpeed = 3f;
     public float backwardSpeed = 2f;
@@ -152,6 +152,15 @@ public class Player : MonoBehaviour
     public void setToIdle()
     {
         this.roundReady = true;
+    }
+
+    public AttackDataObject getAttackToDisplay(int index)
+    {
+        if (index < 0 || index >= moveList.Count)
+        {
+            return null;
+        }
+        return moveList[index];
     }
 
 

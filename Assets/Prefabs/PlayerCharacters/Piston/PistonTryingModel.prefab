@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3583922914144523567}
   - component: {fileID: 8891548337570548946}
   - component: {fileID: -8406486839583793233}
+  - component: {fileID: 2092018735464579241}
   m_Layer: 0
   m_Name: PistonTryingModel
   m_TagString: Untagged
@@ -276,6 +277,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93238e11f4576f3409a4d711ba41d58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerComboManager
+--- !u!114 &2092018735464579241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230787926548527070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57072325fdcedaa42b1d3c1d30d659b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxManager
+  attackIndex: 0
 --- !u!1001 &6400493520487234481
 PrefabInstance:
   m_ObjectHideFlags: 0

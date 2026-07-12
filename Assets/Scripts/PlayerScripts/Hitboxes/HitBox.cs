@@ -7,6 +7,7 @@ public class HitBox
     bool sphereToggle;
     public Vector3 hitboxSize = Vector3.one;
     public float radius = 0.5f;
+    public int activeFrameOffset = 0;//which of the active frames will have this hitbox 
 
 
 }
