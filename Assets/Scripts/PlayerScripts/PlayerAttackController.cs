@@ -10,37 +10,32 @@ using UnityEngine.InputSystem;
 public class PlayerAttackController : MonoBehaviour
 {
     private Player player;
+    private HitBoxManager hitBoxManager; 
 
     void Awake()
     {
         player = GetComponent<Player>();
+        hitBoxManager = GetComponent<HitBoxManager>();
     }
 
     public bool ActivateHurtbox(AttackDataObject attack)
     {
-        //        Debug.Log("Searching in:" + player.targetCollisionLayer);
-
         foreach (HitBox hitbox in attack.hitBoxes)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(player.transform.position
-            + hitbox.origin,
-             hitbox.radius,
-              player.targetCollisionLayer);
+            Collider[] hitColliders = Physics.OverlapSphere(hitbox.GetPositiion(player),
+             hitbox.GetRadius(),
+              player.targetCollisionLayer);//TODO check, if works for second player, forward vector not used
 
             if (hitColliders.Length > 0) //TODO, there are two colliders present in the player, box collider AND CHARCTER CONTROLLER
             {
-                //Debug.Log("HIT");
-
                 DirectionalAttack dAttack = new DirectionalAttack(attack, player.player_body.transform.forward);
 
                 //Here message is used, because it is for the other player
-                hitColliders[0].SendMessage(Messages.HIT, dAttack);//TODO add
+                hitColliders[0].SendMessage(Messages.HIT, dAttack);
                 return true;
             }
         }
-
         return false;
-
         //TODO add some sort of editor, to get teh exact hurtbox I want
     }
 

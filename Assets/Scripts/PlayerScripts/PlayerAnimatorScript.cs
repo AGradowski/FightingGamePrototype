@@ -27,7 +27,7 @@ public class PlayerAnimatorScript : MonoBehaviour
         int animationHash = Animator.StringToHash(animationName);
         Debug.Log("Trying to play " + animationName);
         player.animator.Play(animationHash);//might be better and more controllable than triggers
-        //TOD
+        
     }
 
     //public void QueueAnimation()

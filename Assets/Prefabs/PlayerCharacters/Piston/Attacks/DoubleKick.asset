@@ -27,4 +27,6 @@ MonoBehaviour:
   input: :LK+RK
   hitBoxes:
   - origin: {x: 0, y: 0, z: 0}
-    radius: 1
+    hitboxSize: {x: 1, y: 1, z: 1}
+    radius: 0.01
+    activeFrameOffset: 0

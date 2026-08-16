@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class HitBoxManager : MonoBehaviour
 {
     public int attackIndex;
-    Player player;
+    private Player player;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,10 +21,23 @@ public class HitBoxManager : MonoBehaviour
     }
 
     void OnDrawGizmosSelected()
-    {
+     {
+        player = GetComponent<Player>();
         AttackDataObject displayAttack = player.getAttackToDisplay(attackIndex);
-        Gizmos.color = Color.red;
-        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
-        Gizmos.DrawSphere(displayAttack.hitBoxes[0].origin, displayAttack.hitBoxes[0].radius);
+        if (displayAttack == null)
+        {
+            Debug.Log("No attack selected!");
+            return;
+        }
+       //TODO player.SetAnimationDebug(displayAttack.animationName, displayAttack.startupFrames + 0);
+
+        Gizmos.color = Color.blue;
+        foreach (HitBox hitBox in displayAttack.hitBoxes)
+        {
+            Gizmos.DrawWireSphere(hitBox.GetPositiion(player), hitBox.GetRadius());
+        }
+
     }
+
+
 }

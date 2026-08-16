@@ -9,5 +9,15 @@ public class HitBox
     public float radius = 0.5f;
     public int activeFrameOffset = 0;//which of the active frames will have this hitbox 
 
+    public Vector3 GetPositiion(Player player)
+    {
+        return player.transform.position + origin;
+    }
+
+    public float GetRadius()
+    {
+        return radius;
+    }
+
 
 }

@@ -26,5 +26,11 @@ MonoBehaviour:
   attackType: 0
   input: :RP
   hitBoxes:
-  - origin: {x: 0, y: 0, z: 0}
-    radius: 4
+  - origin: {x: 1, y: 0, z: 0}
+    hitboxSize: {x: 1, y: 1, z: 1}
+    radius: 1
+    activeFrameOffset: 0
+  - origin: {x: 5, y: 0, z: 0}
+    hitboxSize: {x: 1, y: 1, z: 1}
+    radius: 1
+    activeFrameOffset: 0

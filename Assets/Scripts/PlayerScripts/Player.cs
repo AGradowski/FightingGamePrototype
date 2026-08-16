@@ -129,6 +129,13 @@ public class Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer(Names.LAYER_OF_PLAYER_2);
         }
 
+        if (fightManager == null)
+        {
+            Debug.Log("No Manager");
+            setToIdle();
+
+        }
+
 
     }
 
@@ -161,6 +168,11 @@ public class Player : MonoBehaviour
             return null;
         }
         return moveList[index];
+    }
+
+    public void SetAnimationDebug(string animationName, int frame)
+    {
+        return;
     }
 
 
