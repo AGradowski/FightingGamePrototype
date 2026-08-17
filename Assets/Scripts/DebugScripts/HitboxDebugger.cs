@@ -1,17 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HitboxDebugger : HitBoxDebuggerParent
 {
-    private AttackDataObject attack;
-    public Material hitbox;
-    [HideInInspector] GameObject sphere;
+    public Material hitboxMaterial;
+    private List<GameObject> debugHitboxes;
 
     private Player player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GetComponent<Player>();
+        debugHitboxes = new List<GameObject>();
+
     }
 
     // Update is called once per frame
@@ -19,24 +20,29 @@ public class HitboxDebugger : HitBoxDebuggerParent
     {
     }
 
-    public override void GenerateVisualHitbox(AttackDataObject activeAttack)
+    public override void GenerateVisualSphereHitbox(HitBox hitbox)
     {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);//assume primitive is alwys radius 0.5
 
-        base.GenerateVisualHitbox(activeAttack);
-        attack = activeAttack;
-        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);//assume primitive is alwys radius 0.5
-        sphere.transform.localScale = attack.radius * new Vector3(2f, 2f, 2f);
+
+        sphere.transform.localScale = hitbox.GetRadius() * new Vector3(2f, 2f, 2f);
+
         sphere.transform.parent = gameObject.transform;
-        sphere.transform.position = player.transform.position + attack.origin;
+        sphere.transform.position = hitbox.GetPositiion(player);
         sphere.GetComponent<SphereCollider>().isTrigger = true;
-        sphere.GetComponent<Renderer>().material = hitbox;
+        sphere.GetComponent<Renderer>().material = hitboxMaterial;
+        debugHitboxes.Add(sphere);
+
     }
 
     public override void HideVisualHitbox()
     {
         base.HideVisualHitbox();
-        attack = null;
-        Destroy(sphere);
+        foreach (GameObject sphere in debugHitboxes)
+        {
+            Destroy(sphere);
+        }
+        debugHitboxes.Clear();
 
     }
 

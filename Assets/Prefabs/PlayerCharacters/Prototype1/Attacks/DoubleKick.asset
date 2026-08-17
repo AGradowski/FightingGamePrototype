@@ -22,8 +22,11 @@ MonoBehaviour:
   pushback: 0
   isLauncher: 0
   launchHeight: 0
+  _IsCinematicHit: 0
   attackType: 1
   input: :LK+RK
-  origin: {x: 0, y: 0, z: 0}
-  size: {x: 0, y: 0, z: 0}
-  radius: 1
+  hitBoxes:
+  - origin: {x: 0, y: 0, z: 0}
+    hitboxSize: {x: 1, y: 1, z: 1}
+    radius: 0.01
+    activeFrameOffset: 0
