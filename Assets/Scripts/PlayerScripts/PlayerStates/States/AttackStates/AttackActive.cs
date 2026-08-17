@@ -12,7 +12,11 @@ public class AttackActive : PlayerState
     {
         Debug.Log("Activating attack");
         frameTillRecovery = player.currentAttack.activeFrames;
-        player.debugHitbox.GenerateVisualHitbox(player.currentAttack);
+        foreach(HitBox hitbox in player.currentAttack.hitBoxes)
+        {
+            player.debugHitbox.GenerateVisualSphereHitbox(hitbox);
+
+        }
     }
 
     public override void ExitState()
@@ -30,6 +34,7 @@ public class AttackActive : PlayerState
             playerStateMachine.ChangeState(player.AttackRecovery);
             player.playerComboManager.addHit();
         }
+        //TODO update hitboxes, add the functionality to move them during the attack
 
         base.FrameUpdate();
     }
