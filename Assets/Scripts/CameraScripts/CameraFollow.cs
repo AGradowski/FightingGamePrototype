@@ -24,16 +24,27 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 middlePoint = Vector3.Lerp(player1.transform.position, player2.transform.position, 0.5f);
         middlePoint.y = startPosition.y;
+
+        Vector3 crossRes = Vector3.Cross(player1.transform.forward, Vector3.up);//90 degrees from the middle
+
+
+
+
         transform.LookAt(middlePoint);
-        Vector3 oldPos = transform.position;
+
+        //below would be for the caculation of d, the distance between camera, and the middle point
+        //scenario - the players come closer or farther away, with min distance to be preserved
+        //max distance is solved with walls, so that players CAN'T move furhter than camera allows
+        //TODO - add the walls to be chlidren of the camera
         transform.position =
-        middlePoint - transform.forward.normalized
+        middlePoint - crossRes.normalized
         * Vector3.Distance(player1.transform.position, player2.transform.position)
         * a
-        + b * transform.forward.normalized;
+        + b * crossRes.normalized;
         if (Vector3.Distance(transform.position, middlePoint) < minDistance)
         {
-            transform.position = oldPos;
+            //if the distance is too small, just set the minDistance * normilized vector of len = 1, so it will be exact Distance (or close enough)
+            transform.position = middlePoint - crossRes.normalized * minDistance;
         }
     }
 }
