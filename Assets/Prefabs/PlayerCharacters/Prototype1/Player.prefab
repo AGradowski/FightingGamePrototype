@@ -168,6 +168,8 @@ MonoBehaviour:
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
+  dodgeSpeed: 1
+  dodgeLength: 0.5
   player_body: {fileID: 0}
   playerMover: {fileID: 0}
   playerAnimatorScript: {fileID: 0}
@@ -264,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fd634f12550ec489fd44b64bf84fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxDebugger
-  hitbox: {fileID: 2100000, guid: 17a9522694ba38d478ac1587c72afd8d, type: 2}
+  hitboxMaterial: {fileID: 0}
 --- !u!114 &-8406486839583793233
 MonoBehaviour:
   m_ObjectHideFlags: 0

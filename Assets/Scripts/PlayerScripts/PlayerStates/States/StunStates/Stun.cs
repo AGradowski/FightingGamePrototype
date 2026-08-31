@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Stun : PlayerState
 {
+    protected int timeToRecover = 0;
+
     public Stun(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
     }
 
-    protected int timeToRecover = 0;
 
     public override void EnterState()
     {

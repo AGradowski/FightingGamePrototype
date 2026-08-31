@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public AttackActive AttackActive { get; set; }
     [HideInInspector] public AttackStartup AttackStartup { get; set; }
     [HideInInspector] public RoundStart RoundStart { get; set; }
+    [HideInInspector] public DodgeLeft DodgeLeft { get; set; }
+    [HideInInspector] public DodgeRight DodgeRight { get; set; }
 
 
 
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour
     public float forwardSpeed = 3f;
     public float backwardSpeed = 2f;
     public float gravityValue = 9.81f;
+    public float dodgeSpeed = 1f;
+    public float dodgeLength = 12f;
 
 
     #endregion
@@ -108,6 +112,8 @@ public class Player : MonoBehaviour
         BlockStun = new BlockStun(this, StateMachine, animator, StateNames.BLOCK_STUN);
         CrouchBlockStun = new CrouchBlockStun(this, StateMachine, animator, StateNames.CROUCH_BLOCK_STUN);
         RoundStart = new RoundStart(this, StateMachine, animator, StateNames.ROUND_START);
+        DodgeLeft = new DodgeLeft(this, StateMachine, animator, StateNames.DODGE_LEFT);
+        DodgeRight = new DodgeRight(this, StateMachine, animator, StateNames.DODGE_RIGHT);
 
         StateMachine.Initialize(RoundStart);
     }
@@ -173,6 +179,13 @@ public class Player : MonoBehaviour
     public void SetAnimationDebug(string animationName, int frame)
     {
         return;
+    }
+
+    public string CheckSide()
+    {
+        return "Left";//TODO add checking for side
+        //player.transform.forward;
+        //player.mainCamera.transform.forward
     }
 
 
