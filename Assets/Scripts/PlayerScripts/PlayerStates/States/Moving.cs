@@ -58,14 +58,6 @@ public class Moving : PlayerState
             playerStateMachine.ChangeState(player.CrouchBlockingState);
             return;
         }
-        if (moveInput == "8")
-        {
-            return;
-        }
-        if (moveInput == "2")
-        {
-            return;
-        }
         base.TransitionChecks();
 
     }

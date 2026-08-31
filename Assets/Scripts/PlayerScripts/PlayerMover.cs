@@ -49,39 +49,5 @@ public class PlayerMover : MonoBehaviour
         player.player_body.Move(hittingPlayerDirection * pushback);
     }
 
-    public void Dodge(string direction)
-    {
-        if(direction == "Right")
-        {
-            //player.transform.forward;
-            //Add the particle effect
-            Vector3 otherPlayerDirection = player.other_Player.transform.position - player.transform.position;
-            Vector3 dodgeDirection = -1 * Vector3.Cross(otherPlayerDirection, Vector3.up).normalized;
-            Vector3 finalMove = player.dodgeSpeed * dodgeDirection;
-
-            player.player_body.Move(finalMove * Time.deltaTime);
-          //  player.player_body.RotateAround(player.other_Player.transform.position, -Vector3.up, player.dodgeSpeed);
-
-        }
-        else if(direction == "Left")
-        {
-
-            Vector3 otherPlayerDirection = player.other_Player.transform.position - player.transform.position;
-            Vector3 dodgeDirection =  Vector3.Cross(otherPlayerDirection, Vector3.up).normalized;
-            Vector3 finalMove = player.dodgeSpeed * dodgeDirection;
-
-            player.player_body.Move(finalMove * Time.deltaTime);
-        }
-        FixRotation();//is it needed?
-    }
-
-    public void FixRotation()
-    {
-        Vector3 target = player.other_Player.transform.position;
-        target.y =player.transform.position.y;
-        player.transform.LookAt(target);
-
-    }
-
 
 }

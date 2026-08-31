@@ -24,16 +24,8 @@ public class AttackDataObject : ScriptableObject
         Medium,
         Low
     }
-
-    public enum AttackTracking
-    {
-        Both,
-        Left,
-        Right
-    }
     [Header("Other")]
     public AttackType attackType;
-    public AttackTracking trackingType;
 
     [Header("Input")]
     public string input; //ENUM
