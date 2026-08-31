@@ -11,7 +11,10 @@ public class HitBox
 
     public Vector3 GetPositiion(Player player)
     {
-        return player.transform.position + origin;
+        return player.transform.position 
+            + origin.x * player.transform.forward
+            + origin.y * player.transform.up 
+            + origin.z * player.transform.right;
     }
 
     public float GetRadius()
