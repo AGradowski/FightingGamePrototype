@@ -72,6 +72,30 @@ public class Idle : PlayerState
             playerStateMachine.ChangeState(player.CrouchBlockingState);
             return;
         }
+        if (moveInput == "8")//up, towards the screen
+        {
+            if(player.CheckSide() == "Left")
+            {
+                playerStateMachine.ChangeState(player.DodgeLeft);
+            }
+            else if (player.CheckSide() == "Right")
+            {
+                playerStateMachine.ChangeState(player.DodgeRight);
+            }
+            return;
+        }
+        if (moveInput == "2")//down, out of the screen
+        {
+            if (player.CheckSide() == "Right")
+            {
+                playerStateMachine.ChangeState(player.DodgeLeft);
+            }
+            else if (player.CheckSide() == "Left")
+            {
+                playerStateMachine.ChangeState(player.DodgeRight);
+            }
+            return;
+        }
         base.TransitionChecks();
     }
 }

@@ -6,3 +6,4 @@ nav:
   - cameraScripts: cameraScripts.md
   - Input: input.md
   - Hitbox: hitbox.md
+  - Player: player.md

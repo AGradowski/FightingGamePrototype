@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   a: 2
-  b: 3
+  b: 0
   startPosition: {x: 0.4905464, y: 1.819451, z: -17.32034}
   minDistance: 10
 --- !u!1 &410087039

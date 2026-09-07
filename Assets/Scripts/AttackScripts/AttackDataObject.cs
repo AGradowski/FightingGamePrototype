@@ -34,6 +34,7 @@ public class AttackDataObject : ScriptableObject
 
     [Header("Other")]
     public AttackType attackType;
+    public AttackTracking trackingType;
 
     [Header("Input")]
     public string input; //ENUM
