@@ -77,10 +77,6 @@ public class InputInterpreterPlayer : InputInterpreter
         nextMovement = inputMapping.GetValueOrDefault(moveDirection);
 
         frameInput.moveInput = nextMovement;
-       // Debug.Log(value.Get<Vector2>());
-        Debug.Log(cross);
-
-      //  Debug.Log(nextMovement);
     }
 
 

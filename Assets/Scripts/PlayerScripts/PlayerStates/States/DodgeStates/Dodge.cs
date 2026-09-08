@@ -8,8 +8,6 @@ public class Dodge : PlayerState
     {
     }
 
-
-
     public override void EnterState()
     {
         base.EnterState();

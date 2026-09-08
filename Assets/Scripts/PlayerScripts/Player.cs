@@ -180,21 +180,11 @@ public class Player : MonoBehaviour
 
     public string CheckSide()
     {
-        //TODO add checking for side
         Vector3 cross = Vector3.Cross(transform.forward, mainCamera.transform.forward);//in Y = 1 - the player is on the right. -1 - the player is on the left
         if(cross.y < 0)
         {
             return "Left";
         }
-
-        //Debug.Log(cross);
-
         return "Right";
-        //player.transform.forward;
-        //player.mainCamera.transform.forward
-
-
     }
-
-
 }
