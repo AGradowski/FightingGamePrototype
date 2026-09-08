@@ -11,16 +11,15 @@ public class Player : MonoBehaviour
     [HideInInspector] public Blocking BlockingState { get; set; }
     [HideInInspector] public StandBlocking StandBlockingState { get; set; }
     [HideInInspector] public CrouchBlocking CrouchBlockingState { get; set; }
-
     [HideInInspector] public HitStun HitStun { get; set; }
     [HideInInspector] public BlockStun BlockStun { get; set; }
-
     [HideInInspector] public CrouchBlockStun CrouchBlockStun { get; set; }
-
     [HideInInspector] public Moving MovingState { get; set; }
     [HideInInspector] public AttackActive AttackActive { get; set; }
     [HideInInspector] public AttackStartup AttackStartup { get; set; }
     [HideInInspector] public RoundStart RoundStart { get; set; }
+    [HideInInspector] public DodgeLeft DodgeLeft { get; set; }
+    [HideInInspector] public DodgeRight DodgeRight { get; set; }
 
 
 
@@ -36,6 +35,8 @@ public class Player : MonoBehaviour
     public float forwardSpeed = 3f;
     public float backwardSpeed = 2f;
     public float gravityValue = 9.81f;
+    public float dodgeSpeed = 1f;
+    public float dodgeLength = 12f;
 
 
     #endregion
@@ -108,6 +109,8 @@ public class Player : MonoBehaviour
         BlockStun = new BlockStun(this, StateMachine, animator, StateNames.BLOCK_STUN);
         CrouchBlockStun = new CrouchBlockStun(this, StateMachine, animator, StateNames.CROUCH_BLOCK_STUN);
         RoundStart = new RoundStart(this, StateMachine, animator, StateNames.ROUND_START);
+        DodgeLeft = new DodgeLeft(this, StateMachine, animator, StateNames.DODGE_LEFT);
+        DodgeRight = new DodgeRight(this, StateMachine, animator, StateNames.DODGE_RIGHT);
 
         StateMachine.Initialize(RoundStart);
     }
@@ -175,7 +178,13 @@ public class Player : MonoBehaviour
         return;
     }
 
-
-
-
+    public string CheckSide()
+    {
+        Vector3 cross = Vector3.Cross(transform.forward, mainCamera.transform.forward);//in Y = 1 - the player is on the right. -1 - the player is on the left
+        if(cross.y < 0)
+        {
+            return "Left";
+        }
+        return "Right";
+    }
 }

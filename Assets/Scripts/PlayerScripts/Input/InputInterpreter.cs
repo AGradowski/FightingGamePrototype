@@ -42,5 +42,7 @@ public class InputInterpreter : MonoBehaviour
         nextAttack = null;
     }
 
+    //ALSO, check the children of this class to check for specifics
+
 
 }

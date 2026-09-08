@@ -16,7 +16,6 @@ public class PlayerMover : MonoBehaviour
         player.player_body.Move(firstMove * Time.deltaTime);
     }
 
-
     public virtual void MovePlayer()
     {
         string input = player.inputInterpreter.GetMovementInput();
@@ -33,9 +32,6 @@ public class PlayerMover : MonoBehaviour
 
         Vector3 finalMove = movementVector.x * player.player_body.transform.forward;
         player.player_body.Move(finalMove * Time.deltaTime);
-
-
-
     }
 
     public void StopPlayer()
@@ -49,5 +45,35 @@ public class PlayerMover : MonoBehaviour
         player.player_body.Move(hittingPlayerDirection * pushback);
     }
 
+    public void DodgeUpdate(string direction)
+    {
+        Vector3 otherPlayerDirection = player.other_Player.transform.position - player.transform.position;
 
+        Vector3 dodgeDirection;
+
+        if (direction == "Right")
+        {
+            //Add the particle effect
+            dodgeDirection = -1 * Vector3.Cross(otherPlayerDirection, Vector3.up).normalized;//either left or right
+
+        }
+        else if (direction == "Left")
+        {
+            dodgeDirection = Vector3.Cross(otherPlayerDirection, Vector3.up).normalized;
+            
+        }
+        else return;
+
+        Vector3 finalMove = player.dodgeSpeed * dodgeDirection;
+        player.player_body.Move(finalMove * Time.deltaTime);//this is intended to be used in Update, to move the player each frame.
+
+        FixRotation();
+    }
+
+    public void FixRotation()
+    {
+        Vector3 target = player.other_Player.transform.position;
+        target.y = player.transform.position.y;
+        player.transform.LookAt(target);
+    }
 }

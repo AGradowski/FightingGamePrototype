@@ -73,8 +73,4 @@ public class FrameInput
                                 this.rightKick,
                                 this.moveInput);
     }
-
-
-
-
 }

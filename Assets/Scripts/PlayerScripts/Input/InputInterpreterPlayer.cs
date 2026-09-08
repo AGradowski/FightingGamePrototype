@@ -69,9 +69,9 @@ public class InputInterpreterPlayer : InputInterpreter
 
     public void OnMove(InputValue value)
     {
-        Vector3 cross = Vector3.Cross(player.transform.forward, player.mainCamera.transform.forward);
-        Vector2 moveDirection = value.Get<Vector2>() * cross.y * -1; //-1 for back, 1 for forward?
-
+        Vector3 cross = Vector3.Cross(player.transform.forward, player.mainCamera.transform.forward);//in Y = 1 - the player is on the left. -1 - the player is on the right
+        Vector2 moveDirection = value.Get<Vector2>(); 
+        moveDirection.x *= cross.y * -1;
 
         moveDirection = Vector2Int.RoundToInt(moveDirection);
         nextMovement = inputMapping.GetValueOrDefault(moveDirection);

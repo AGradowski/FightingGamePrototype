@@ -58,6 +58,31 @@ public class Moving : PlayerState
             playerStateMachine.ChangeState(player.CrouchBlockingState);
             return;
         }
+        //TODO below - change the dodge input to "8*5*8" or "2*5*2" - double tap of the button - will require Input interpreter to recognise this
+        if (moveInput == "8")//up, towards the screen
+        {
+            if (player.CheckSide() == "Left")
+            {
+                playerStateMachine.ChangeState(player.DodgeLeft);
+            }
+            else if (player.CheckSide() == "Right")
+            {
+                playerStateMachine.ChangeState(player.DodgeRight);
+            }
+            return;
+        }
+        if (moveInput == "2")//down, out of the screen
+        {
+            if (player.CheckSide() == "Right")
+            {
+                playerStateMachine.ChangeState(player.DodgeLeft);
+            }
+            else if (player.CheckSide() == "Left")
+            {
+                playerStateMachine.ChangeState(player.DodgeRight);
+            }
+            return;
+        }
         base.TransitionChecks();
 
     }
