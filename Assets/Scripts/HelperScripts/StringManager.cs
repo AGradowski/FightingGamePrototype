@@ -11,6 +11,13 @@ public class Names
     public const string LAYER_OF_PLAYER_1 = "Player1";
 
     public const string LAYER_OF_PLAYER_2 = "Player2";
+    public const string DODGE_LEFT = "DashSmoke_DashLeft";
+    public const string DODGE_RIGHT = "DashSmoke_DashRight";
+    public const string P1_DODGE_LEFT = "/" + PLAYER1 +  "/DashSmoke_DashLeft";
+    public const string P1_DODGE_RIGHT = "/" + PLAYER1 + "/DashSmoke_DashRight";
+    public const string P2_DODGE_LEFT = "/" + PLAYER2 + "/DashSmoke_DashLeft";
+    public const string P2_DODGE_RIGHT = "/" + PLAYER2 + "/DashSmoke_DashRight";
+
 }
 
 public class StateNames

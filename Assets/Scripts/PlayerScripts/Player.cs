@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerHitManager playerHitManager;
     [HideInInspector] public HealthScript playerHealthManager;
     [HideInInspector] public PlayerComboManager playerComboManager;
+    [HideInInspector] public PlayerParticleManager playerParticleManager;
 
     #endregion
 
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Object References
-    [HideInInspector] public GameObject other_Player;
+    public GameObject other_Player;
     public GameObject mainCamera;
     public GameObject fightManager;
 
@@ -92,6 +93,7 @@ public class Player : MonoBehaviour
         playerHitManager = GetComponent<PlayerHitManager>();
         playerHealthManager = GetComponent<HealthScript>();
         playerComboManager = GetComponent<PlayerComboManager>();
+        playerParticleManager = GetComponent<PlayerParticleManager>();
 
         StateMachine = GetComponent<PlayerStateMachine>();
         debugHitbox = GetComponent<HitBoxDebuggerParent>();
