@@ -13,8 +13,16 @@ public class DodgeRight : Dodge
     {
         base.EnterState();
         Debug.Log("Right");
+        player.playerParticleManager.ActivateDodgeRight();
         //TODO Add particles
 
+    }
+
+    public override void ExitState()
+    {
+        player.playerParticleManager.StopDodgeRight();
+
+        base.ExitState();
     }
 
     public override void FrameUpdate()

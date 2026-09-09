@@ -12,7 +12,15 @@ public class DodgeLeft : Dodge
     {
         base.EnterState();
         Debug.Log("Left");
+        player.playerParticleManager.ActivateDodgeLeft();
         //TODO Add particles
+    }
+
+    public override void ExitState()
+    {
+        player.playerParticleManager.StopDodgeLeft();
+
+        base.ExitState();
     }
 
     public override void FrameUpdate()
