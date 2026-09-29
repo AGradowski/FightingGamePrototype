@@ -181,6 +181,7 @@ MonoBehaviour:
   playerHealthManager: {fileID: 0}
   playerComboManager: {fileID: 0}
   playerParticleManager: {fileID: 0}
+  playerHitBoxManager: {fileID: 0}
   animator: {fileID: 0}
   playerInput: {fileID: 0}
   inputInterpreter: {fileID: 0}
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c063db16c3b3a30419123ed42effced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMover
+  maxYVelocity: 10
 --- !u!114 &-3297691359480719553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxManager
   attackIndex: 0
+  colliderList: []
+  knockDownCollider: {fileID: 0}
 --- !u!114 &7430495541431465963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,11 +550,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 595e84c9efb410d41a2e5bc3b475fcf6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 595e84c9efb410d41a2e5bc3b475fcf6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.699
+      value: -0.881
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 595e84c9efb410d41a2e5bc3b475fcf6, type: 3}
       propertyPath: m_LocalPosition.z

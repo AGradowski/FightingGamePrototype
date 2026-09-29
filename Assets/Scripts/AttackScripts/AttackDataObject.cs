@@ -15,6 +15,7 @@ public class AttackDataObject : ScriptableObject
     [Header("Combo data")]
     public float pushback;
     public bool isLauncher;
+    public bool knocksDown;
     public float launchHeight;
     public bool _IsCinematicHit;
 

@@ -21,9 +21,11 @@ MonoBehaviour:
   animationName: LeftPistonPunch
   pushback: 0
   isLauncher: 0
+  knocksDown: 1
   launchHeight: 0
   _IsCinematicHit: 0
   attackType: 1
+  trackingType: 0
   input: :LK+RK
   hitBoxes:
   - origin: {x: 0, y: 0, z: 0}

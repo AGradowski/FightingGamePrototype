@@ -18,13 +18,22 @@ public class HitStun : Stun
 
     public override void TransitionChecks()
     {
-        base.TransitionChecks();
         if (player.playerHitManager._IsHit)
         {
             Debug.Log("COMBO");
+            //Add combo counter
+            if (player.playerHitManager.hitByCurrentAttack.isLauncher)
+            {
+                playerStateMachine.ChangeState(player.Launched);
+                return;
+            }
+            if (player.playerHitManager.hitByCurrentAttack.knocksDown && player.player_body.isGrounded)
+            {
+                playerStateMachine.ChangeState(player.KnockDown);
+                return;
+            }
             playerStateMachine.ChangeState(player.HitStun);
         }
+        base.TransitionChecks();   
     }
-
-
 }
