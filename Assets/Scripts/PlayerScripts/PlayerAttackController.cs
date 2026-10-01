@@ -31,7 +31,7 @@ public class PlayerAttackController : MonoBehaviour
                 DirectionalAttack dAttack = new DirectionalAttack(attack, player.player_body.transform.forward);
 
                 //Here message is used, because it is for the other player
-                hitColliders[0].SendMessage(Messages.HIT, dAttack);
+                hitColliders[0].SendMessageUpwards(Messages.HIT, dAttack);//issue for knockdown collider
                 return true;
             }
         }

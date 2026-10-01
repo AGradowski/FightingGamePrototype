@@ -16,10 +16,20 @@ public class HealthScript : MonoBehaviour
     {
         healthValue -= damage;
         Debug.Log(healthValue);
-        Actions.HealthChanged(player);
+        if (Actions.HealthChanged != null)//null on no manager
+        {
+            Actions.HealthChanged(player);
+        }
         if (healthValue <= 0)
         {
-            Actions.PlayerDied(player);
+            if (Actions.PlayerDied != null)//null on no manager
+            {
+                Actions.PlayerDied(player);
+            }
+            else
+            {
+                healthValue = 100;//reset on no manager
+            }
         }
     }
 

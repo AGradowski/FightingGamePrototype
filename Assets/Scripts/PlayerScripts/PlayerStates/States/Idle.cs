@@ -12,9 +12,10 @@ public class Idle : PlayerState
 
     public override void EnterState()
     {
-
         Debug.Log("Idle " + player.gameObject.name);
         Actions.PlayerRecoveredAfterHits(player);
+        player.playerHitBoxManager.SetStateHurtboxes(this);
+        player.playerHitManager.ClearAttack();
         base.EnterState();
     }
 
@@ -44,12 +45,20 @@ public class Idle : PlayerState
             if (player.playerHitManager._IsCinematicHit)
             {
                 playerStateMachine.ChangeState(player.HitStun);
+                return;
 
             }
-            else
+            if (player.playerHitManager.hitByCurrentAttack.knocksDown)
             {
-                playerStateMachine.ChangeState(player.HitStun);
+                playerStateMachine.ChangeState(player.KnockDown);
+                return;
             }
+            if (player.playerHitManager.hitByCurrentAttack.isLauncher)
+            {
+                playerStateMachine.ChangeState(player.Launched);
+                return;
+            }
+            playerStateMachine.ChangeState(player.HitStun);
 
         }
         if (player.inputInterpreter.GetNextCommand() is not null)

@@ -5,19 +5,14 @@ public class Names
     public const string PUNCH = "Punch";
     public const string PLAYER1 = "Player1";
     public const string PLAYER2 = "Player2";
-
     public const string PLAYER1_CAMERA_NAME = "Main Camera";
     public const string PLAYER2_CAMERA_NAME = "Main Camera";
     public const string LAYER_OF_PLAYER_1 = "Player1";
-
     public const string LAYER_OF_PLAYER_2 = "Player2";
     public const string DODGE_LEFT = "DashSmoke_DashLeft";
     public const string DODGE_RIGHT = "DashSmoke_DashRight";
-    public const string P1_DODGE_LEFT = "/" + PLAYER1 +  "/DashSmoke_DashLeft";
-    public const string P1_DODGE_RIGHT = "/" + PLAYER1 + "/DashSmoke_DashRight";
-    public const string P2_DODGE_LEFT = "/" + PLAYER2 + "/DashSmoke_DashLeft";
-    public const string P2_DODGE_RIGHT = "/" + PLAYER2 + "/DashSmoke_DashRight";
-
+    public const string KNOCK_DOWN_HITBOX = "KnockDownCollider";
+    public const string GROUND_LAYER = "Ground";
 }
 
 public class StateNames
@@ -34,6 +29,9 @@ public class StateNames
     public const string ROUND_START = "RoundStart";
     public const string DODGE_LEFT = "DodgeLeft";
     public const string DODGE_RIGHT = "DodgeRight";
+    public const string KNOCK_DOWN = "KnockDown";
+    public const string WAKE_UP = "WakeUp";
+    public const string LAUNCHED = "Launched";
 }
 
 public class Messages
@@ -45,7 +43,6 @@ public class UINames
 {
     public const string LABEL_OF_PLAYER1 = "HealthLabel1";
     public const string LABEL_OF_PLAYER2 = "HealthLabel2";
-
     public const string HP_MASK_PLAYER1 = "HealthBarMask1";
     public const string HP_MASK_PLAYER2 = "HealthBarMask2";
 }
@@ -53,6 +50,9 @@ public class UINames
 public class HelpStrings
 {
     public const string INPUT_SEPARATOR = ":";
-
 }
 
+public class Constants
+{
+    public const float gravityValue = -9.81f;
+}

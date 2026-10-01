@@ -6,18 +6,15 @@ public class HitBoxManager : MonoBehaviour
 {
     public int attackIndex;
     private Player player;
-
+    public Collider[] colliderList;
+    public Collider knockDownCollider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GetComponent<Player>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        colliderList = transform.GetComponentsInChildren<Collider>();
+        knockDownCollider = GameObject.Find(player.gameObject.name + "/" + Names.KNOCK_DOWN_HITBOX).GetComponent<Collider>();
     }
 
     void OnDrawGizmosSelected()
@@ -39,5 +36,21 @@ public class HitBoxManager : MonoBehaviour
 
     }
 
+    public void SetStateHurtboxes(KnockDown state)
+    {
+        foreach (Collider collider in colliderList)
+        {
+            collider.enabled = false;
+        }
+        knockDownCollider.enabled = true;
+    }
 
+    public void SetStateHurtboxes(Idle state)
+    {
+        foreach (Collider collider in colliderList)
+        {
+            collider.enabled = true;
+        }
+        knockDownCollider.enabled = false;
+    }
 }

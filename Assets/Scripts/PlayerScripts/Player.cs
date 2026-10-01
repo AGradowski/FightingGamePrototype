@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [HideInInspector] public RoundStart RoundStart { get; set; }
     [HideInInspector] public DodgeLeft DodgeLeft { get; set; }
     [HideInInspector] public DodgeRight DodgeRight { get; set; }
+    [HideInInspector] public KnockDown KnockDown { get; set; }
+    [HideInInspector] public WakeUp WakeUp { get; set; }
+    [HideInInspector] public Launched Launched { get; set; }
 
 
 
@@ -30,7 +33,6 @@ public class Player : MonoBehaviour
     //for testing purposes, list will suffice
 
     public List<AttackDataObject> moveList;
-    //public int displayAttackIndex = 0;
 
     public float forwardSpeed = 3f;
     public float backwardSpeed = 2f;
@@ -42,7 +44,10 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Player Scripts
-    [HideInInspector] public CharacterController player_body;//how it is different than rigidbody? Tutorial uses rigid body, need to be careful
+
+    //TODO - add RequireComponent for all the MOnoBehaviours - it will add the component automatically
+
+    [HideInInspector] public CharacterController player_body;//how it is different than rigidbody? Tutorial uses rigid body, need to be careful - this is just a sphere collider with extra stuff
 
 
     [HideInInspector] public PlayerMover playerMover;
@@ -52,6 +57,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public HealthScript playerHealthManager;
     [HideInInspector] public PlayerComboManager playerComboManager;
     [HideInInspector] public PlayerParticleManager playerParticleManager;
+    [HideInInspector] public HitBoxManager playerHitBoxManager;
 
     #endregion
 
@@ -94,10 +100,10 @@ public class Player : MonoBehaviour
         playerHealthManager = GetComponent<HealthScript>();
         playerComboManager = GetComponent<PlayerComboManager>();
         playerParticleManager = GetComponent<PlayerParticleManager>();
+        playerHitBoxManager = GetComponent<HitBoxManager>();
 
         StateMachine = GetComponent<PlayerStateMachine>();
         debugHitbox = GetComponent<HitBoxDebuggerParent>();
-
 
         IdleState = new Idle(this, StateMachine, animator, StateNames.IDLE);
         BlockingState = new Blocking(this, StateMachine, animator, StateNames.BLOCKING);
@@ -113,6 +119,21 @@ public class Player : MonoBehaviour
         RoundStart = new RoundStart(this, StateMachine, animator, StateNames.ROUND_START);
         DodgeLeft = new DodgeLeft(this, StateMachine, animator, StateNames.DODGE_LEFT);
         DodgeRight = new DodgeRight(this, StateMachine, animator, StateNames.DODGE_RIGHT);
+        KnockDown = new KnockDown(this, StateMachine, animator, StateNames.KNOCK_DOWN);
+        WakeUp  = new WakeUp(this, StateMachine, animator, StateNames.WAKE_UP);
+        Launched = new Launched(this, StateMachine, animator, StateNames.LAUNCHED);
+
+        RaycastHit groundHit;
+        if (Physics.Raycast(player_body.transform.position, Vector3.down, out groundHit, Mathf.Infinity, LayerMask.GetMask(Names.GROUND_LAYER)))
+        {
+            Debug.DrawRay(player_body.transform.position, Vector3.down * groundHit.distance, Color.yellow, 100f);
+            transform.position = groundHit.point;
+            player_body.transform.position = groundHit.point;
+        }
+        else
+        {
+            Debug.DrawRay(player_body.transform.position, Vector3.down * 1000, Color.white, 100f);
+        }
 
         StateMachine.Initialize(RoundStart);
     }
@@ -140,8 +161,6 @@ public class Player : MonoBehaviour
             setToIdle();
 
         }
-
-
     }
 
     void Update()
