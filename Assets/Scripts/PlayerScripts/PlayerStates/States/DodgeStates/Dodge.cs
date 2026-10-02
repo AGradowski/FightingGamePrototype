@@ -25,7 +25,7 @@ public class Dodge : PlayerState
         if (timeToExitDodge <= 0)
         {
             Debug.Log("Dodge finished");
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
         }
     }
 

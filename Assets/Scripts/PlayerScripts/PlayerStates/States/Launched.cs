@@ -41,7 +41,7 @@ public class Launched : PlayerState
     {
         if(player.player_body.isGrounded)
         {
-            playerStateMachine.ChangeState(player.KnockDown);
+            playerStateMachine.ChangeState(player.playerStatesManager.knockDown);
             return;
         }
         if (player.playerHitManager._IsHit)
@@ -50,15 +50,15 @@ public class Launched : PlayerState
             //Add combo counter
             if (player.playerHitManager.hitByCurrentAttack.isLauncher)
             {
-                playerStateMachine.ChangeState(player.Launched);
+                playerStateMachine.ChangeState(player.playerStatesManager.launched);
                 return;
             }
             if (player.playerHitManager.hitByCurrentAttack.knocksDown && player.player_body.isGrounded)
             {
-                playerStateMachine.ChangeState(player.KnockDown);
+                playerStateMachine.ChangeState(player.playerStatesManager.knockDown);
                 return;
             }
-            playerStateMachine.ChangeState(player.HitStun);
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
         }
         base.TransitionChecks();
     }

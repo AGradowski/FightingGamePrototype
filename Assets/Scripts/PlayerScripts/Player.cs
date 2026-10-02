@@ -7,27 +7,7 @@ public class Player : MonoBehaviour
 {
     #region State Machine Variables
     [HideInInspector] public PlayerStateMachine StateMachine { get; set; }
-    [HideInInspector] public Idle IdleState { get; set; }
-    [HideInInspector] public Blocking BlockingState { get; set; }
-    [HideInInspector] public StandBlocking StandBlockingState { get; set; }
-    [HideInInspector] public CrouchBlocking CrouchBlockingState { get; set; }
-    [HideInInspector] public HitStun HitStun { get; set; }
-    [HideInInspector] public BlockStun BlockStun { get; set; }
-    [HideInInspector] public CrouchBlockStun CrouchBlockStun { get; set; }
-    [HideInInspector] public Moving MovingState { get; set; }
-    [HideInInspector] public AttackActive AttackActive { get; set; }
-    [HideInInspector] public AttackStartup AttackStartup { get; set; }
-    [HideInInspector] public RoundStart RoundStart { get; set; }
-    [HideInInspector] public DodgeLeft DodgeLeft { get; set; }
-    [HideInInspector] public DodgeRight DodgeRight { get; set; }
-    [HideInInspector] public KnockDown KnockDown { get; set; }
-    [HideInInspector] public WakeUp WakeUp { get; set; }
-    [HideInInspector] public Launched Launched { get; set; }
-
-
-
-
-    [HideInInspector] public AttackRecovery AttackRecovery { get; set; }//both for hit, whiff and block
+    [HideInInspector] public PlayerStatesManager playerStatesManager { get; set; }
 
     //public Dictionary<string, AttackDataObject> moveList; //possible improvemnt, but does not appear in editor, would require reading some files
     //for testing purposes, list will suffice
@@ -105,23 +85,7 @@ public class Player : MonoBehaviour
         StateMachine = GetComponent<PlayerStateMachine>();
         debugHitbox = GetComponent<HitBoxDebuggerParent>();
 
-        IdleState = new Idle(this, StateMachine, animator, StateNames.IDLE);
-        BlockingState = new Blocking(this, StateMachine, animator, StateNames.BLOCKING);
-        StandBlockingState = new StandBlocking(this, StateMachine, animator, StateNames.STAND_BLOCKING);
-        CrouchBlockingState = new CrouchBlocking(this, StateMachine, animator, StateNames.CROUCH_BLOCKING);
-        HitStun = new HitStun(this, StateMachine, animator, StateNames.HIT_STUN);
-        MovingState = new Moving(this, StateMachine, animator, StateNames.MOVING);
-        AttackActive = new AttackActive(this, StateMachine, animator, StateNames.ATTACK);
-        AttackStartup = new AttackStartup(this, StateMachine, animator, StateNames.ATTACK);
-        AttackRecovery = new AttackRecovery(this, StateMachine, animator, StateNames.ATTACK);
-        BlockStun = new BlockStun(this, StateMachine, animator, StateNames.BLOCK_STUN);
-        CrouchBlockStun = new CrouchBlockStun(this, StateMachine, animator, StateNames.CROUCH_BLOCK_STUN);
-        RoundStart = new RoundStart(this, StateMachine, animator, StateNames.ROUND_START);
-        DodgeLeft = new DodgeLeft(this, StateMachine, animator, StateNames.DODGE_LEFT);
-        DodgeRight = new DodgeRight(this, StateMachine, animator, StateNames.DODGE_RIGHT);
-        KnockDown = new KnockDown(this, StateMachine, animator, StateNames.KNOCK_DOWN);
-        WakeUp  = new WakeUp(this, StateMachine, animator, StateNames.WAKE_UP);
-        Launched = new Launched(this, StateMachine, animator, StateNames.LAUNCHED);
+        playerStatesManager = new PlayerStatesManager(this);
 
         RaycastHit groundHit;
         if (Physics.Raycast(player_body.transform.position, Vector3.down, out groundHit, Mathf.Infinity, LayerMask.GetMask(Names.GROUND_LAYER)))
@@ -135,7 +99,7 @@ public class Player : MonoBehaviour
             Debug.DrawRay(player_body.transform.position, Vector3.down * 1000, Color.white, 100f);
         }
 
-        StateMachine.Initialize(RoundStart);
+        StateMachine.Initialize(playerStatesManager.roundStart);
     }
 
     void Start()
@@ -177,7 +141,7 @@ public class Player : MonoBehaviour
     public void setToRoundStart()
     {
         this.roundReady = false;
-        StateMachine.ChangeState(this.RoundStart);
+        StateMachine.ChangeState(playerStatesManager.roundStart);
     }
 
     public void setToIdle()

@@ -27,7 +27,7 @@ public class KnockDown : PlayerState
     {
         if (knockDownTimer <= 0)
         {
-            playerStateMachine.ChangeState(player.WakeUp);
+            playerStateMachine.ChangeState(player.playerStatesManager.wakeUp);
         }
         if(player.playerHitManager._IsHit)
         {

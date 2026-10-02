@@ -32,7 +32,7 @@ public class Stun : PlayerState
     {
         if (timeToRecover <= 0)
         {
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
         }
     }
 

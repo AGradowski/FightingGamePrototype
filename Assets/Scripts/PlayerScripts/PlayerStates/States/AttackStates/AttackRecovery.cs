@@ -35,12 +35,12 @@ public class AttackRecovery : PlayerState
         if (frameTillFinish <= 0)
         {
             player.currentAttack = null;
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
             return;
         }
         if (player.playerHitManager._IsHit)
         {
-            playerStateMachine.ChangeState(player.HitStun);
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
         }
 
         //if (timeTillActive <= 0)

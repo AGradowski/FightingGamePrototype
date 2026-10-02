@@ -23,7 +23,7 @@ public class CinematicAttack : Cinematic
         if (!player.animator.GetCurrentAnimatorStateInfo(0).IsName(player.currentAttack.animationName))
         {
             player.currentAttack = null;
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
             return;
         }
         base.TransitionChecks();

@@ -35,27 +35,27 @@ public class Moving : PlayerState
 
         if (player.playerHitManager._IsHit)
         {
-            playerStateMachine.ChangeState(player.HitStun);
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
         }
         if (player.inputInterpreter.GetNextCommand() is not null)
         {
 
-            playerStateMachine.ChangeState(player.AttackStartup);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackStartup);
             return;
         }
         if (moveInput == "5")
         {
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
             return;
         }
         if (moveInput == "4")
         {
-            playerStateMachine.ChangeState(player.StandBlockingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.standBlockingState);
             return;
         }
         if (moveInput == "1")
         {
-            playerStateMachine.ChangeState(player.CrouchBlockingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.crouchBlockingState);
             return;
         }
         //TODO below - change the dodge input to "8*5*8" or "2*5*2" - double tap of the button - will require Input interpreter to recognise this
@@ -63,11 +63,11 @@ public class Moving : PlayerState
         {
             if (player.CheckSide() == "Left")
             {
-                playerStateMachine.ChangeState(player.DodgeLeft);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeLeft);
             }
             else if (player.CheckSide() == "Right")
             {
-                playerStateMachine.ChangeState(player.DodgeRight);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeRight);
             }
             return;
         }
@@ -75,11 +75,11 @@ public class Moving : PlayerState
         {
             if (player.CheckSide() == "Right")
             {
-                playerStateMachine.ChangeState(player.DodgeLeft);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeLeft);
             }
             else if (player.CheckSide() == "Left")
             {
-                playerStateMachine.ChangeState(player.DodgeRight);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeRight);
             }
             return;
         }

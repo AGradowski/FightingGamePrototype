@@ -130,6 +130,7 @@ Assets/
    PlayerHitManager.cs
    PlayerMover.cs
    PlayerParticleManager.cs
+   PlayerStatesManager.cs
   UIScripts/HpBarsManager.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 

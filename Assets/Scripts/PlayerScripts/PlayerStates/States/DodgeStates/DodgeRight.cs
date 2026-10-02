@@ -38,7 +38,7 @@ public class DodgeRight : Dodge
         base.TransitionChecks();
         if (player.playerHitManager._IsHit && player.playerHitManager.hitByCurrentAttack.trackingType == AttackDataObject.AttackTracking.Right)
         {
-            playerStateMachine.ChangeState(player.HitStun);
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
         }
         base.TransitionChecks();
     }

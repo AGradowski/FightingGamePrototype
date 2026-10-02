@@ -26,7 +26,7 @@ public class StandBlocking : Blocking
         if (player.playerHitManager._IsHit && player.playerHitManager.hitByCurrentAttack.attackType == AttackDataObject.AttackType.Low)
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
-            playerStateMachine.ChangeState(player.HitStun);//add celaring of the state, as it is being confirmed
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);//add celaring of the state, as it is being confirmed
             return;
         }
         if (player.playerHitManager._IsHit &&
@@ -35,18 +35,18 @@ public class StandBlocking : Blocking
          )
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
-            playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
+            playerStateMachine.ChangeState(player.playerStatesManager.blockStun);//add celaring of the state, as it is being confirmed
             return;
         }
         if (player.playerHitManager._IsHit)
         {
             Debug.Log("Attempting to Change state" + player.gameObject.name);
-            playerStateMachine.ChangeState(player.BlockStun);//add celaring of the state, as it is being confirmed
+            playerStateMachine.ChangeState(player.playerStatesManager.blockStun);//add celaring of the state, as it is being confirmed
             return;
         }
         if (moveInput == "1")
         {
-            playerStateMachine.ChangeState(player.CrouchBlockingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.crouchBlockingState);
             return;
         }
         base.TransitionChecks();

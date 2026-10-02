@@ -18,7 +18,7 @@ public class Debug_SetPlayerState : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         player = GetComponent<Player>();
         inputInterpreterDebug = GetComponent<InputInterpreterDebug>();
@@ -26,22 +26,22 @@ public class Debug_SetPlayerState : MonoBehaviour
         switch (chosenState)
         {
             case PossibleStates.Idle:
-                state = player.IdleState;
+                state = player.playerStatesManager.idleState;
                 inputInterpreterDebug.setDebugMovementInput("5");
 
                 break;
             case PossibleStates.StandBlocking:
-                state = player.StandBlockingState;
+                state = player.playerStatesManager.standBlockingState;
                 inputInterpreterDebug.setDebugMovementInput("4");
 
                 break;
             case PossibleStates.CrouchBlocking:
-                state = player.CrouchBlockingState;
+                state = player.playerStatesManager.crouchBlockingState;
                 inputInterpreterDebug.setDebugMovementInput("1");
 
                 break;
             default:
-                state = player.IdleState;
+                state = player.playerStatesManager.idleState;
                 inputInterpreterDebug.setDebugMovementInput("5");
                 break;
         }
@@ -58,19 +58,19 @@ public class Debug_SetPlayerState : MonoBehaviour
             switch (chosenState)
             {
                 case PossibleStates.Idle:
-                    state = player.IdleState;
+                    state = player.playerStatesManager.idleState;
                     inputInterpreterDebug.setDebugMovementInput("5");
                     break;
                 case PossibleStates.StandBlocking:
-                    state = player.StandBlockingState;
+                    state = player.playerStatesManager.standBlockingState;
                     inputInterpreterDebug.setDebugMovementInput("4");
                     break;
                 case PossibleStates.CrouchBlocking:
-                    state = player.CrouchBlockingState;
+                    state = player.playerStatesManager.crouchBlockingState;
                     inputInterpreterDebug.setDebugMovementInput("1");
                     break;
                 default:
-                    state = player.IdleState;
+                    state = player.playerStatesManager.idleState;
                     inputInterpreterDebug.setDebugMovementInput("5");
                     break;
             }
