@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Idle : PlayerState
 {
     private string moveInput = "";
+    private string dashInput = "";
     private AttackDataObject attackInput = null;
     public Idle(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
@@ -31,6 +32,7 @@ public class Idle : PlayerState
         moveInput = player.inputInterpreter.GetMovementInput();
 
         attackInput = player.inputInterpreter.GetNextCommand();
+        dashInput = player.inputInterpreter.GetSpecialMoveInput();
         base.FrameUpdate();
     }
     public override void PhysicsUpdate() { }
@@ -81,7 +83,7 @@ public class Idle : PlayerState
             playerStateMachine.ChangeState(player.playerStatesManager.crouchBlockingState);
             return;
         }
-        if (moveInput == "8")//up, towards the screen
+        if (dashInput == "8")//up, towards the screen
         {
             if(player.CheckSide() == "Left")
             {
@@ -93,7 +95,7 @@ public class Idle : PlayerState
             }
             return;
         }
-        if (moveInput == "2")//down, out of the screen
+        if (dashInput == "2")//down, out of the screen
         {
             if (player.CheckSide() == "Right")
             {

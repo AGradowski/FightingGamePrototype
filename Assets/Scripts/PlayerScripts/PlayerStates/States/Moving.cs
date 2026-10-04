@@ -3,6 +3,7 @@ using UnityEngine;
 public class Moving : PlayerState
 {
     private string moveInput = "";
+    private string dashInput = "";
     private AttackDataObject attackInput = null;
 
     public Moving(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
@@ -25,6 +26,7 @@ public class Moving : PlayerState
 
         moveInput = player.inputInterpreter.GetMovementInput();
         attackInput = player.inputInterpreter.GetNextCommand();
+        dashInput = player.inputInterpreter.GetSpecialMoveInput();
         player.playerMover.MovePlayer();
 
         base.FrameUpdate();
@@ -59,7 +61,7 @@ public class Moving : PlayerState
             return;
         }
         //TODO below - change the dodge input to "8*5*8" or "2*5*2" - double tap of the button - will require Input interpreter to recognise this
-        if (moveInput == "8")//up, towards the screen
+        if (dashInput == "8")//up, towards the screen
         {
             if (player.CheckSide() == "Left")
             {
@@ -71,7 +73,7 @@ public class Moving : PlayerState
             }
             return;
         }
-        if (moveInput == "2")//down, out of the screen
+        if (dashInput == "2")//down, out of the screen
         {
             if (player.CheckSide() == "Right")
             {

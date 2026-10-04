@@ -6,6 +6,7 @@ public class InputInterpreter : MonoBehaviour
     protected Player player;
     protected AttackDataObject nextAttack = null;
     protected string nextMovement = "5";
+    protected string nextDash = "5";
     protected float retentionCounter = 0;
     protected List<AttackDataObject> moveList;
     protected FrameInput frameInput = new FrameInput();
@@ -18,6 +19,10 @@ public class InputInterpreter : MonoBehaviour
     public virtual AttackDataObject GetNextCommand()
     {
         return nextAttack;
+    }
+    public virtual string GetSpecialMoveInput()
+    {
+        return nextDash;
     }
 
     public virtual void inputUpdate()
@@ -40,6 +45,32 @@ public class InputInterpreter : MonoBehaviour
 
         }
         nextAttack = null;
+        if (inputBuffer.containsMotionInput("656"))
+        {
+            Debug.Log("Dash");
+            nextDash = "6";
+            return;
+        }
+        if (inputBuffer.containsMotionInput("454"))
+        {
+            Debug.Log("Backdash");
+            nextDash = "4";
+            return;
+        }
+        if (inputBuffer.containsMotionInput("858"))
+        {
+            Debug.Log("DodgeUp");
+            nextDash = "8";
+            return;
+        }
+        if (inputBuffer.containsMotionInput("252"))
+        {
+            Debug.Log("DodgeDown");
+            nextDash = "2";
+            return;
+        }
+        nextDash = "5";
+
     }
 
     //ALSO, check the children of this class to check for specifics
