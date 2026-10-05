@@ -33,6 +33,8 @@ public class AttackDataObject : ScriptableObject
         Right
     }
 
+    //
+
     [Header("Other")]
     public AttackType attackType;
     public AttackTracking trackingType;
@@ -45,4 +47,10 @@ public class AttackDataObject : ScriptableObject
     //TODO - so much more, now just a simple punch will suffice
     [Header("HitBoxData")]
     public HitBox[] hitBoxes;
+
+
+    [Header("Stance")]
+    public string stanceName = "Attack";//by default, it will be attack, no stance 
+    //dash is a stance
+    public string moveType = "5";//which dash direction, or special stance rule
 }

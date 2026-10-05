@@ -48,7 +48,7 @@ public class AttackStartup : PlayerState
             //TODO change this to attack startup
             //TODO remove the above
             //TODO add counterhit state and check
-            playerStateMachine.ChangeState(player.AttackActive);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackActive);
         }
         //TODO add check for the if was counterhit, or better to make the state machine check it? When entering counterhit/hit states?
         //TODO add checking, when one part of animation is finished, so that the hurtbox can be deployed

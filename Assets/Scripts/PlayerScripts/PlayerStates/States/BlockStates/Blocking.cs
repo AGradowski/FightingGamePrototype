@@ -35,18 +35,18 @@ public class Blocking : PlayerState
         if (player.inputInterpreter.GetNextCommand() is not null)
         {
 
-            playerStateMachine.ChangeState(player.AttackStartup);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackStartup);
             return;
         }
         if (moveInput == "5")
         {
             Debug.Log("Here");
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
             return;
         }
         if (moveInput == "6")
         {
-            playerStateMachine.ChangeState(player.MovingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.movingState);
             return;
         }
 

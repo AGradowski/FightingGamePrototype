@@ -25,7 +25,7 @@ public class WakeUp : PlayerState
     {
         if (wakeUpTimer < 0)
         {
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
         }
         base.TransitionChecks();
     }

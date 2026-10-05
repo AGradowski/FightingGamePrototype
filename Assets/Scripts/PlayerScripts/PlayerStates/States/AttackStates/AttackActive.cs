@@ -31,7 +31,7 @@ public class AttackActive : PlayerState
         //check the hitbox, each frame it is active
         if (player.playerAttackController.ActivateHurtbox(player.currentAttack))
         {
-            playerStateMachine.ChangeState(player.AttackRecovery);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackRecovery);
             player.playerComboManager.addHit();
         }
         //TODO update hitboxes, add the functionality to move them during the attack
@@ -51,7 +51,7 @@ public class AttackActive : PlayerState
             //TODO change this to attack startup
             //TODO remove the above
             //TODO add counterhit state and check
-            playerStateMachine.ChangeState(player.AttackRecovery);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackRecovery);
         }
         //if (timeTillActive <= 0)
         //  {

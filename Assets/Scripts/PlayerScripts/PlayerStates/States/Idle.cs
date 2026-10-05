@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Idle : PlayerState
 {
     private string moveInput = "";
+    private string dashInput = "";
     private AttackDataObject attackInput = null;
     public Idle(Player player, PlayerStateMachine playerStateMachine, Animator animationController, string animationName) : base(player, playerStateMachine, animationController, animationName)
     {
@@ -31,6 +32,7 @@ public class Idle : PlayerState
         moveInput = player.inputInterpreter.GetMovementInput();
 
         attackInput = player.inputInterpreter.GetNextCommand();
+        dashInput = player.inputInterpreter.GetSpecialMoveInput();
         base.FrameUpdate();
     }
     public override void PhysicsUpdate() { }
@@ -44,64 +46,64 @@ public class Idle : PlayerState
             Debug.Log("HIT SEEN");
             if (player.playerHitManager._IsCinematicHit)
             {
-                playerStateMachine.ChangeState(player.HitStun);
+                playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
                 return;
 
             }
             if (player.playerHitManager.hitByCurrentAttack.knocksDown)
             {
-                playerStateMachine.ChangeState(player.KnockDown);
+                playerStateMachine.ChangeState(player.playerStatesManager.knockDown);
                 return;
             }
             if (player.playerHitManager.hitByCurrentAttack.isLauncher)
             {
-                playerStateMachine.ChangeState(player.Launched);
+                playerStateMachine.ChangeState(player.playerStatesManager.launched);
                 return;
             }
-            playerStateMachine.ChangeState(player.HitStun);
+            playerStateMachine.ChangeState(player.playerStatesManager.hitStun);
 
         }
         if (player.inputInterpreter.GetNextCommand() is not null)
         {
-            playerStateMachine.ChangeState(player.AttackStartup);
+            playerStateMachine.ChangeState(player.playerStatesManager.attackStartup);
             return;
         }
         if (moveInput == "6")
         {
-            playerStateMachine.ChangeState(player.MovingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.movingState);
             return;
         }
         if (moveInput == "4")
         {
-            playerStateMachine.ChangeState(player.StandBlockingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.standBlockingState);
             return;
         }
         if (moveInput == "1")
         {
-            playerStateMachine.ChangeState(player.CrouchBlockingState);
+            playerStateMachine.ChangeState(player.playerStatesManager.crouchBlockingState);
             return;
         }
-        if (moveInput == "8")//up, towards the screen
+        if (dashInput == "8")//up, towards the screen
         {
             if(player.CheckSide() == "Left")
             {
-                playerStateMachine.ChangeState(player.DodgeLeft);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeLeft);
             }
             else if (player.CheckSide() == "Right")
             {
-                playerStateMachine.ChangeState(player.DodgeRight);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeRight);
             }
             return;
         }
-        if (moveInput == "2")//down, out of the screen
+        if (dashInput == "2")//down, out of the screen
         {
             if (player.CheckSide() == "Right")
             {
-                playerStateMachine.ChangeState(player.DodgeLeft);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeLeft);
             }
             else if (player.CheckSide() == "Left")
             {
-                playerStateMachine.ChangeState(player.DodgeRight);
+                playerStateMachine.ChangeState(player.playerStatesManager.dodgeRight);
             }
             return;
         }

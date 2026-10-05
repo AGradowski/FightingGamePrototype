@@ -19,7 +19,7 @@ public class RoundStart : Cinematic
     {
         if (player.roundReady)
         {
-            playerStateMachine.ChangeState(player.IdleState);
+            playerStateMachine.ChangeState(player.playerStatesManager.idleState);
             return;
         }
         base.TransitionChecks();

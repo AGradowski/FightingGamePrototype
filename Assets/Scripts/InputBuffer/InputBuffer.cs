@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class InputBuffer
 {
     public LinkedList<FrameInput> inputHistory = new LinkedList<FrameInput>();
     public int sizeOfBuffer = 10;
+    //public int sizeOfMotionBuffer = 10; //how much in the past do we need to check for motion input WIP
 
     public InputBuffer()
     {
@@ -56,6 +58,17 @@ public class InputBuffer
             node = node.Previous;
         }
         return false;
+    }
+
+    public string toString()
+    {
+        string res = "";
+        LinkedListNode<FrameInput> node = inputHistory.Last;
+        while (node is not null)
+        {
+            res += node.Value.AttackToString();
+        }
+        return res;
     }
 
 

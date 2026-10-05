@@ -6,6 +6,7 @@ public class InputInterpreter : MonoBehaviour
     protected Player player;
     protected AttackDataObject nextAttack = null;
     protected string nextMovement = "5";
+    protected string nextDash = "5";
     protected float retentionCounter = 0;
     protected List<AttackDataObject> moveList;
     protected FrameInput frameInput = new FrameInput();
@@ -18,6 +19,10 @@ public class InputInterpreter : MonoBehaviour
     public virtual AttackDataObject GetNextCommand()
     {
         return nextAttack;
+    }
+    public virtual string GetSpecialMoveInput()
+    {
+        return nextDash;
     }
 
     public virtual void inputUpdate()
@@ -33,13 +38,25 @@ public class InputInterpreter : MonoBehaviour
         {
             if (inputBuffer.containsMotionInput(attack.input))
             {
-                nextAttack = attack;
-                return;
+                if(attack.stanceName == "Attack")
+                {
+                    nextAttack = attack;
+                    return;
+                }
+                if (attack.stanceName == "Move")
+                {
+                    nextDash = attack.moveType;
+                    return;
+                }
+
+                
                 //TODO add checking for similar results, for example if LP+RP does not exist, then LP should be chosen
             }
 
         }
         nextAttack = null;
+        nextDash = "5";
+
     }
 
     //ALSO, check the children of this class to check for specifics

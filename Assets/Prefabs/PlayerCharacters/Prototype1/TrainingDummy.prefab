@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -9007599884623121460}
   - component: {fileID: 732276402468893891}
   - component: {fileID: -715706209738578077}
+  - component: {fileID: 427999001843378347}
   m_Layer: 0
   m_Name: TrainingDummy
   m_TagString: Untagged
@@ -43,6 +44,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6870706940988218458}
+  - {fileID: 6241186461623816589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5162032320548824947
@@ -166,12 +168,17 @@ MonoBehaviour:
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
+  dodgeSpeed: 1
+  dodgeLength: 12
   player_body: {fileID: 0}
   playerMover: {fileID: 0}
   playerAnimatorScript: {fileID: 0}
   playerAttackController: {fileID: 0}
   playerHitManager: {fileID: 0}
   playerHealthManager: {fileID: 0}
+  playerComboManager: {fileID: 0}
+  playerParticleManager: {fileID: 0}
+  playerHitBoxManager: {fileID: 0}
   animator: {fileID: 0}
   playerInput: {fileID: 0}
   inputInterpreter: {fileID: 0}
@@ -179,9 +186,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   debugHitbox: {fileID: 0}
+  other_Player: {fileID: 0}
   mainCamera: {fileID: 0}
   fightManager: {fileID: 0}
   currentAttack: {fileID: 0}
+  playerID: -1
+  roundReady: 0
 --- !u!114 &7400642052069740396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHitManager
   _IsHit: 0
-  currentAttack: {fileID: 0}
+  _IsCinematicHit: 0
+  hitByCurrentAttack: {fileID: 0}
+  currentEnemyForwardVector: {x: 0, y: 0, z: 0}
 --- !u!114 &3583922914144523567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +282,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5543542d3d83f5a449df39214a7ffe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Debug_PlayerMover
+  maxYVelocity: 10
+--- !u!114 &427999001843378347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230787926548527070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57072325fdcedaa42b1d3c1d30d659b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxManager
+  attackIndex: 0
+  colliderList: []
+  knockDownCollider: {fileID: 0}
+--- !u!1 &9200638993314262051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6241186461623816589}
+  - component: {fileID: 61556474205400773}
+  m_Layer: 10
+  m_Name: KnockDownCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6241186461623816589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200638993314262051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.006277336, y: 0.9999745, z: -0.0005968243, w: -0.0033552642}
+  m_LocalPosition: {x: -0.06, y: -0.71, z: -0.21}
+  m_LocalScale: {x: 1, y: 0.19622, z: 2.3581}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3151478214074752960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &61556474205400773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200638993314262051}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6400493520487234481
 PrefabInstance:
   m_ObjectHideFlags: 0
