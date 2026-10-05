@@ -200,6 +200,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a6f8967a355023478dc7392c32edca9, type: 2}
   - {fileID: 11400000, guid: 9c52a10e26aaee941a63991040326ca9, type: 2}
   - {fileID: 11400000, guid: ac98d304235b1974fa655e6d1492d35c, type: 2}
+  - {fileID: 11400000, guid: cd8b35d9421f533408408dfa8ffa1597, type: 2}
+  - {fileID: 11400000, guid: ca0bed59765403245b355c5e47add43e, type: 2}
+  - {fileID: 11400000, guid: 712cae169b393a24296052a973a3956a, type: 2}
+  - {fileID: 11400000, guid: e200ba839f6681d4d8809615ec44123c, type: 2}
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81

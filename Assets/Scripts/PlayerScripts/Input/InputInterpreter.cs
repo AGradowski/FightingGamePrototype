@@ -38,37 +38,23 @@ public class InputInterpreter : MonoBehaviour
         {
             if (inputBuffer.containsMotionInput(attack.input))
             {
-                nextAttack = attack;
-                return;
+                if(attack.stanceName == "Attack")
+                {
+                    nextAttack = attack;
+                    return;
+                }
+                if (attack.stanceName == "Move")
+                {
+                    nextDash = attack.moveType;
+                    return;
+                }
+
+                
                 //TODO add checking for similar results, for example if LP+RP does not exist, then LP should be chosen
             }
 
         }
         nextAttack = null;
-        if (inputBuffer.containsMotionInput("656"))
-        {
-            Debug.Log("Dash");
-            nextDash = "6";
-            return;
-        }
-        if (inputBuffer.containsMotionInput("454"))
-        {
-            Debug.Log("Backdash");
-            nextDash = "4";
-            return;
-        }
-        if (inputBuffer.containsMotionInput("858"))
-        {
-            Debug.Log("DodgeUp");
-            nextDash = "8";
-            return;
-        }
-        if (inputBuffer.containsMotionInput("252"))
-        {
-            Debug.Log("DodgeDown");
-            nextDash = "2";
-            return;
-        }
         nextDash = "5";
 
     }

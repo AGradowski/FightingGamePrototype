@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b79b4fed6130745aa11c6a7d2b18a9, type: 3}
+  m_Name: DodgeUp
+  m_EditorClassIdentifier: Assembly-CSharp::AttackDataObject
+  damage: 0
+  startupFrames: 0
+  activeFrames: 0
+  recoveryFrames: 0
+  hitStun: 0
+  blockStun: 0
+  animationName: 
+  pushback: 0
+  isLauncher: 0
+  knocksDown: 0
+  launchHeight: 0
+  _IsCinematicHit: 0
+  attackType: 0
+  trackingType: 0
+  input: 858
+  hitBoxes: []
+  stanceName: Move
+  moveType: 8
