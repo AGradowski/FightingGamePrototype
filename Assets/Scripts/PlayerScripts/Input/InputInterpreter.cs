@@ -25,6 +25,11 @@ public class InputInterpreter : MonoBehaviour
         return nextDash;
     }
 
+    public InputBuffer GetInputBuffer()
+    {
+        return inputBuffer;
+    }
+
     public virtual void inputUpdate()
     {
         inputBuffer.addInput(frameInput);

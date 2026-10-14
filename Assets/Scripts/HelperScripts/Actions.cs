@@ -8,5 +8,6 @@ public static class Actions
     public static Action<Player> PlayerDied;
     public static Action<Player> PlayerRecoveredAfterHits;
     public static Action<Player> ComboChanged;
+    public static Action<Player> InputChanged;
     public static Action RoundStart;
 }
