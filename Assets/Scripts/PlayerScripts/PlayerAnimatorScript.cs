@@ -22,9 +22,13 @@ public class PlayerAnimatorScript : MonoBehaviour
 
     public void PlayAnimation(string animationName)
     {
+        if(player == null)
+        {
+            player = GetComponent<Player>();
+        }
         int animationHash = Animator.StringToHash(animationName);
         Debug.Log("Trying to play " + animationName);
-        player.animator.Play(animationHash);//might be better and more controllable than triggers
+        player.GetComponentInChildren<Animator>().Play(animationHash);//might be better and more controllable than triggers
         
     }
 

@@ -52,8 +52,16 @@ public class Moving : PlayerState
         }
         if (moveInput == "4")
         {
+            if(dashInput == "4")
+            {
+                playerStateMachine.ChangeState(player.playerStatesManager.backDash);
+            }
             playerStateMachine.ChangeState(player.playerStatesManager.standBlockingState);
             return;
+        }
+        if (dashInput == "6")
+        {
+            playerStateMachine.ChangeState(player.playerStatesManager.fwdDash);
         }
         if (moveInput == "1")
         {

@@ -21,6 +21,8 @@ public class PlayerStatesManager
     public WakeUp wakeUp { get; set; }
     public Launched launched { get; set; }
     public AttackRecovery attackRecovery { get; set; }
+    public BackDash backDash { get; set; }
+    public ForwardDash fwdDash { get; set; }
 
 
     public PlayerStatesManager(Player player)
@@ -42,5 +44,7 @@ public class PlayerStatesManager
         knockDown = new KnockDown(player, player.StateMachine, player.animator, StateNames.KNOCK_DOWN);
         wakeUp = new WakeUp(player, player.StateMachine, player.animator, StateNames.WAKE_UP);
         launched = new Launched(player, player.StateMachine, player.animator, StateNames.LAUNCHED);
+        backDash = new BackDash(player, player.StateMachine, player.animator, StateNames.BACK_DASH);
+        fwdDash = new ForwardDash(player, player.StateMachine, player.animator, StateNames.FWD_DASH);
     }
 }

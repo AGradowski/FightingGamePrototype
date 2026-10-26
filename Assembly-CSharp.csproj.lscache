@@ -93,6 +93,7 @@ Assets/
     InputInterpreterDebug.cs
     InputInterpreterPlayer.cs
    PlayerStates/
+    CharacterSpecific/Oomfie/Skate.cs
     States/
      AttackStates/
       AttackActive.cs
@@ -106,6 +107,10 @@ Assets/
       Cinematic.cs
       CinematicAttack.cs
       RoundStart.cs
+     DashStates/
+      BackDash.cs
+      Dash.cs
+      ForwardDash.cs
      DodgeStates/
       Dodge.cs
       DodgeLeft.cs
@@ -131,7 +136,9 @@ Assets/
    PlayerMover.cs
    PlayerParticleManager.cs
    PlayerStatesManager.cs
-  UIScripts/HpBarsManager.cs
+  UIScripts/
+   HpBarsManager.cs
+   InputHistory_UI.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]
@@ -397,6 +404,8 @@ Library/
   com.unity.visualscripting@b4d700247d4b/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll
  ScriptAssemblies/
   PPv2URPConverters.dll
+  Unity.2D.Sprite.AIIntegration.Editor.dll
+  Unity.2D.Sprite.Editor.dll
   Unity.AI.Navigation.dll
   Unity.AI.Navigation.Editor.ConversionSystem.dll
   Unity.AI.Navigation.Editor.dll

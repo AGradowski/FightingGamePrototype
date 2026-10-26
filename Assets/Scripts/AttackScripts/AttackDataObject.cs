@@ -50,7 +50,8 @@ public class AttackDataObject : ScriptableObject
 
 
     [Header("Stance")]
-    public string stanceName = "Attack";//by default, it will be attack, no stance 
+    public string stanceType = "Attack";//by default, it will be attack, no stance 
     //dash is a stance
     public string moveType = "5";//which dash direction, or special stance rule
+    public string stanceName = "Idle";//which dash direction, or special stance rule
 }

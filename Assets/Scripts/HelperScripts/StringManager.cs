@@ -32,6 +32,8 @@ public class StateNames
     public const string KNOCK_DOWN = "KnockDown";
     public const string WAKE_UP = "WakeUp";
     public const string LAUNCHED = "Launched";
+    public const string BACK_DASH = "BackDash";
+    public const string FWD_DASH = "FwdDash";
 }
 
 public class Messages

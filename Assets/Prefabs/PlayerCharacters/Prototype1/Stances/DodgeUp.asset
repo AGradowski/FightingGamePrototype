@@ -28,5 +28,6 @@ MonoBehaviour:
   trackingType: 0
   input: 858
   hitBoxes: []
-  stanceName: Move
+  stanceType: Move
   moveType: 8
+  stanceName: Move

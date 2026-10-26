@@ -8,6 +8,7 @@ public class Blocking : PlayerState
     }
 
     protected string moveInput = "";
+    protected string dashInput = "";
     protected AttackDataObject attackInput = null;
     public override void EnterState()
     {
@@ -24,6 +25,7 @@ public class Blocking : PlayerState
     {
         moveInput = player.inputInterpreter.GetMovementInput();
         attackInput = player.inputInterpreter.GetNextCommand();
+        dashInput = player.inputInterpreter.GetSpecialMoveInput();
         //
         base.FrameUpdate();
     }
@@ -46,9 +48,20 @@ public class Blocking : PlayerState
         }
         if (moveInput == "6")
         {
+            if(dashInput == "6")
+            {
+                playerStateMachine.ChangeState(player.playerStatesManager.fwdDash);
+                return;
+            }
             playerStateMachine.ChangeState(player.playerStatesManager.movingState);
             return;
         }
+        if(dashInput == "4")
+        {
+            playerStateMachine.ChangeState(player.playerStatesManager.backDash);
+            return;
+        }    
+
 
 
         base.TransitionChecks();

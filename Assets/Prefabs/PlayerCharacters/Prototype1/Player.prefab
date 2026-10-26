@@ -209,6 +209,10 @@ MonoBehaviour:
   gravityValue: 9.81
   dodgeSpeed: 1
   dodgeLength: 1
+  fwdDashLength: 0.16666667
+  backDashLength: 0.16666667
+  fwdDashSpeed: 4
+  backDashSpeed: 5
   player_body: {fileID: 0}
   playerMover: {fileID: 0}
   playerAnimatorScript: {fileID: 0}
