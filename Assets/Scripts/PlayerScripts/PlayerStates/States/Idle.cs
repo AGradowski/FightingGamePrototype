@@ -70,11 +70,21 @@ public class Idle : PlayerState
         }
         if (moveInput == "6")
         {
+            if(dashInput == "6")
+            {
+                playerStateMachine.ChangeState(player.playerStatesManager.fwdDash);
+                return;
+            }
             playerStateMachine.ChangeState(player.playerStatesManager.movingState);
             return;
         }
         if (moveInput == "4")
         {
+            if(dashInput == "4")
+            {
+                playerStateMachine.ChangeState(player.playerStatesManager.backDash);
+                return;
+            }
             playerStateMachine.ChangeState(player.playerStatesManager.standBlockingState);
             return;
         }

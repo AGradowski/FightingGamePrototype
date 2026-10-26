@@ -72,6 +72,20 @@ public class PlayerMover : MonoBehaviour
         FixRotation();
     }
 
+    public void ForwardDashUpdate()
+    {
+        movementVector = new Vector2(1.0f * player.fwdDashSpeed, player.transform.position.y);
+        Vector3 finalMove = movementVector.x * player.player_body.transform.forward;
+        player.player_body.Move(finalMove * Time.deltaTime);
+    }
+
+    public void BackDashUpdate()
+    {
+        movementVector = new Vector2(-1.0f * player.backDashSpeed, player.transform.position.y);
+        Vector3 finalMove = movementVector.x * player.player_body.transform.forward;
+        player.player_body.Move(finalMove * Time.deltaTime);
+    }
+
     public void FixRotation()
     {
         Vector3 target = player.other_Player.transform.position;

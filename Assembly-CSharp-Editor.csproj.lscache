@@ -49,7 +49,9 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 /warnaserror+:NU1605
 
 [sourceFiles]
-Assets/Other/TutorialInfo/Scripts/Editor/ReadmeEditor.cs
+Assets/
+ Other/TutorialInfo/Scripts/Editor/ReadmeEditor.cs
+ Scripts/PlayerScripts/Editor/AnimationTester.cs
 Temp/obj/Assembly-CSharp-Editor/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]
@@ -332,6 +334,8 @@ Library/
    Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll
  ScriptAssemblies/
   PPv2URPConverters.dll
+  Unity.2D.Sprite.AIIntegration.Editor.dll
+  Unity.2D.Sprite.Editor.dll
   Unity.AI.Navigation.dll
   Unity.AI.Navigation.Editor.ConversionSystem.dll
   Unity.AI.Navigation.Editor.dll

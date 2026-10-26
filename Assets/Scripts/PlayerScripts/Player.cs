@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     public float gravityValue = 9.81f;
     public float dodgeSpeed = 1f;
     public float dodgeLength = 12f;
+    public float fwdDashLength = 5/60;
+    public float backDashLength = 5/60;
+    public float fwdDashSpeed = 4f;
+    public float backDashSpeed = 5f;
 
 
     #endregion
@@ -172,4 +176,5 @@ public class Player : MonoBehaviour
         }
         return "Right";
     }
+
 }

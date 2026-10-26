@@ -5,6 +5,7 @@ public class InputInterpreter : MonoBehaviour
 {
     protected Player player;
     protected AttackDataObject nextAttack = null;
+    protected string nextStance = null;
     protected string nextMovement = "5";
     protected string nextDash = "5";
     protected float retentionCounter = 0;
@@ -25,6 +26,11 @@ public class InputInterpreter : MonoBehaviour
         return nextDash;
     }
 
+    public InputBuffer GetInputBuffer()
+    {
+        return inputBuffer;
+    }
+
     public virtual void inputUpdate()
     {
         inputBuffer.addInput(frameInput);
@@ -38,15 +44,19 @@ public class InputInterpreter : MonoBehaviour
         {
             if (inputBuffer.containsMotionInput(attack.input))
             {
-                if(attack.stanceName == "Attack")
+                if(attack.stanceType == "Attack")
                 {
                     nextAttack = attack;
                     return;
                 }
-                if (attack.stanceName == "Move")
+                if (attack.stanceType == "Move")
                 {
                     nextDash = attack.moveType;
                     return;
+                }
+                if (attack.stanceType == "Special")//special stationary, special movable, special dash, any others can be added
+                {
+                    nextStance = attack.stanceName;
                 }
 
                 
