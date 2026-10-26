@@ -11,7 +11,6 @@ public class Dash : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        //timeToExitDash = player.backDashLength;
     }
 
     public override void FrameUpdate()

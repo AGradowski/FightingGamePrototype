@@ -65,29 +65,4 @@ public class InputHistory_UI : MonoBehaviour
 
 
     }
-
-    /*
-    public void UpdateHistory(Player player)
-    {
-        List<GameObject> targetList = null;
-        if(player.name == Names.PLAYER1)
-        {
-            targetList = inputHistoryIconsListP1;
-        }
-        if (player.name == Names.PLAYER2)
-        {
-            targetList = inputHistoryIconsListP2;
-        }
-        if(targetList is null)
-        {
-            return;
-        }
-        player.inputInterpreter.GetInputBuffer();
-        player.inputInterpreter.GetMovementInput();
-
-
-
-
-    }
-    */
 }
