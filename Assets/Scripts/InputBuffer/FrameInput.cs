@@ -73,4 +73,9 @@ public class FrameInput
                                 this.rightKick,
                                 this.moveInput);
     }
+
+    public bool ButtonPresent()
+    {
+        return this.leftPunch || this.rightPunch || this.leftKick || this.rightKick;
+    }
 }

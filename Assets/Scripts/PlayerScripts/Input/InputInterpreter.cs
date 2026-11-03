@@ -31,6 +31,11 @@ public class InputInterpreter : MonoBehaviour
         return inputBuffer;
     }
 
+    public FrameInput GetFrameInput()
+    {
+        return frameInput;
+    }
+
     public virtual void inputUpdate()
     {
         inputBuffer.addInput(frameInput);
