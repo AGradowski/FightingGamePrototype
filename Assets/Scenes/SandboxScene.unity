@@ -388,22 +388,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4323862822694893039, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
-      propertyPath: dodgeSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -4323862822694893039, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1528548658}
-    - target: {fileID: -4323862822694893039, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
-      propertyPath: dodgeLength
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: -4323862822694893039, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
-      propertyPath: other_Player
-      value: 
-      objectReference: {fileID: 1725635953}
     - target: {fileID: 3151478214074752960, guid: 4ef52933f3e13cb4e89144820afa5545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.79
@@ -621,11 +605,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1725635953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5230787926548527070, guid: 5bfd5cac4efd5f548aafdd29ff8e11fd, type: 3}
-  m_PrefabInstance: {fileID: 257678584}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
