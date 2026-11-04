@@ -207,8 +207,8 @@ MonoBehaviour:
   forwardSpeed: 3
   backwardSpeed: 2
   gravityValue: 9.81
-  dodgeSpeed: 1
-  dodgeLength: 1
+  dodgeSpeed: 2
+  dodgeLength: 0.16666667
   fwdDashLength: 0.16666667
   backDashLength: 0.16666667
   fwdDashSpeed: 4
@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198628400744592984, guid: e58a55b2514575f4cb70754397301b36, type: 3}
       propertyPath: prewarm
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198628400744592984, guid: e58a55b2514575f4cb70754397301b36, type: 3}
       propertyPath: playOnAwake
@@ -532,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198628400744592984, guid: e58a55b2514575f4cb70754397301b36, type: 3}
       propertyPath: prewarm
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198628400744592984, guid: e58a55b2514575f4cb70754397301b36, type: 3}
       propertyPath: playOnAwake
