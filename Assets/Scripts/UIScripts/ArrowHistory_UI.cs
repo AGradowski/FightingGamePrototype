@@ -16,7 +16,6 @@ public class ArrowHistory_UI : MonoBehaviour
     void Start()
     {
         inputHistoryIconsListP1 = new List<GameObject>();
-        //inputHistoryIconsListP2 = new List<GameObject>();
         p1 = GameObject.Find(Names.PLAYER1).GetComponent<Player>();
     }
 
@@ -24,11 +23,9 @@ public class ArrowHistory_UI : MonoBehaviour
     public bool ArrowUpdate(string newMovement)
     {
         bool changed = false;
-        //string newMovement = p1.inputInterpreter.GetMovementInput();
         if (lastMovement != newMovement)
         {
             //NOTE - optmization - use already exisitng arrow icons, just toggle them (object pool?)
-
             GameObject newIcon = Instantiate(arrrowIconTemplate, gameObject.transform);
             switch(newMovement)
             {
@@ -58,7 +55,6 @@ public class ArrowHistory_UI : MonoBehaviour
                 case "7":
                     newIcon.transform.Rotate(0, 0, 0 + 45);
                     break;
-
             }
             inputHistoryIconsListP1.Add(newIcon);
             if(inputHistoryIconsListP1.Count > maxIcons)
@@ -73,12 +69,8 @@ public class ArrowHistory_UI : MonoBehaviour
         {
             frameCount = 0;
         }
-
-
         lastMovement = newMovement;
         return changed;
-
-
     }
 
     public void AddEmpty()

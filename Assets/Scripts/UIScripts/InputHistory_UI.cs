@@ -20,7 +20,6 @@ public class InputHistory_UI : MonoBehaviour
         FrameInput currentFrame = p1.inputInterpreter.GetFrameInput();
         bool arrowFlag = arrowsManager.ArrowUpdate(currentFrame.moveInput);
         bool buttonFlag = buttonsManager.ButtonUpdate(currentFrame);
-
         if (arrowFlag && !buttonFlag)
         {
             buttonsManager.AddEmpty();            
