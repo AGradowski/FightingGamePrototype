@@ -137,6 +137,9 @@ Assets/
    PlayerParticleManager.cs
    PlayerStatesManager.cs
   UIScripts/
+   ArrowHistory_UI.cs
+   ButtonHistory_UI.cs
+   ButtonIcon.cs
    HpBarsManager.cs
    InputHistory_UI.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
